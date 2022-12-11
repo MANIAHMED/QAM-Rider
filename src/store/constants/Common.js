@@ -1,0 +1,8 @@
+const Common = {
+
+GET_ADMINISTRATION_NUMBER: 'GET_ADMINISTRATION_NUMBER',
+GET_LOCATION: 'GET_LOCATION',
+
+};
+
+export default Common;
