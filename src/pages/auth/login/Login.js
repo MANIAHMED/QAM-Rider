@@ -4,7 +4,7 @@ import { ProgressiveImage, ViewContainer } from "../../../containers";
 import CForm from "./Form";
 import Styles from '../AuthStyle';
 import { View, Text } from "react-native";
-import { login } from "../../../store/actions/Auth";
+// import { login } from "../../../store/actions/Auth";
 
 
 
@@ -23,7 +23,7 @@ function Login(props) {
     const userImage = require('../../../assets/images/qam-logo.png')
 
     const submit = (values) => {
-        dispatch(login(values))
+        // dispatch(login(values))
     };
 
     const navigate = (routeName) => {

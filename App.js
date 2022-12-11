@@ -1,20 +1,10 @@
 
 import React, { Fragment, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import Toast from "react-native-toast-message";
+import { Provider, useDispatch, useSelector } from "react-redux";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import Auth from "./src/routing/Auth";
-import Root from "./src/routing/Root";
-import { Splash } from './src/uiComponents';
-import { Header } from './src/containers';
-import { checkAuth } from "./src/store/actions/Auth";
-import { getAdministrationNumber } from "./src/store/actions/Common";
-import OneSignal from 'react-native-onesignal';
-import { onesignalAppId } from './src/utils/constant';
-import { Text } from "react-native";
-
-
-
+import Root from "native-base";
+import { Provider } from 'react-native-paper'
+import { onesignalAppId } from "./src/utils/constant";
 
 const App = () => {
 
@@ -22,19 +12,18 @@ const App = () => {
 
   const [lng, setLng] = useState(null);
 
-  const reduxState = useSelector(({ auth }) => {
-    return {
-      loading: auth.loading,
-      getProfileLoading: auth.getProfileLoading,
-      userLoggedIn: auth.userLoggedIn
+
+  const onIds = async (device) => {
+    if (device.userId) {
+      await AsyncStorage.setItem('NOTIFICATION_TOKEN', device.userId)
     }
-  });
+  }
 
   useEffect(() => {
-    // dispatch(checkAuth());
-    // dispatch(getAdministrationNumber());
-  }, []);
-
+    OneSignal.init(onesignalAppId);
+    OneSignal.addEventListener('ids', onIds);
+    return () => OneSignal.removeEventListener('ids', this.onIds)
+  }, [])
 
   useEffect(() => {
 
@@ -49,11 +38,6 @@ const App = () => {
   }, [])
 
 
-  const onIds = async (device) => {
-    if (device.userId) {
-      await AsyncStorage.setItem('NOTIFICATION_TOKEN', device.userId)
-    }
-  }
 
   const handleLanguageChange = async (lng) => {
     await AsyncStorage.setItem('@lng', lng)
@@ -61,9 +45,18 @@ const App = () => {
   }
 
   return (
-    <Fragment>
-      {reduxState?.getProfileLoading ? <Splash /> : reduxState?.userLoggedIn ? <Root lng={lng} handleLanguageChange={handleLanguageChange} /> : <Auth />}
-    </Fragment>
+    <Provider>
+      <Root>
+        {
+          lng &&
+          <Routes
+            lng={lng}
+            // lng={'en'}
+            handleLanguageChange={handleLanguageChange}
+          />
+        }
+      </Root>
+    </Provider>
   )
 
 }
