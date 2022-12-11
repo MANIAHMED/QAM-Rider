@@ -2,32 +2,23 @@ import React, { Component } from 'react';
 import { Text, Modal, View, SafeAreaView, TouchableOpacity, Picker, Image, ScrollView } from 'react-native';
 import { styles } from './GetPaymentType.style';
 import { Body, Button, Card, CardItem, Container, Content, Footer, Input, Item } from 'native-base';
-import { dangerColor, lightTextColor, PAYMENT_TYPE } from '../../constants';
+import { dangerColor, lightTextColor, PAYMENT_TYPE } from '../../utils/constant';
 import ImagePicker from 'react-native-image-picker';
 import MaterialCommunityIcons from 'react-native-vector-icons/dist/MaterialCommunityIcons';
 import Loader from '../Loader/Loader';
-import CustomToast from '../Toast/Toast';
-function GetPaymentType () {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
+// import CustomToast from '../Toast/Toast';
+function GetPaymentType ({  visible = false,
+    error,
+    loading,
+    handlePaymentTypeChange,
+    handlePaymentTypeSubmit,
+    handleGetPaymentTypeModal,
+    appointments,
+    handleToastClose,
+    vendorName}) {
+  
+  
 
-    //     }
-    // }
-
-    // render() {
-    //     const {
-    //         visible = false,
-    //         error,
-    //         loading,
-    //         handlePaymentTypeChange,
-    //         handlePaymentTypeSubmit,
-    //         handleGetPaymentTypeModal,
-    //         appointments,
-    //         handleToastClose,
-    //         vendorName
-    //     } = this.props;
-    //     const { } = this.state
 
         return (
             <Modal
@@ -37,10 +28,10 @@ function GetPaymentType () {
                 onRequestClose={() => handleGetPaymentTypeModal(false)}>
                 <Container>
                     <Loader loading={loading} />
-                    {
+                    {/* {
                         error !== '' &&
                         <CustomToast text={error} duration={3000} onClose={handleToastClose} />
-                    }
+                    } */}
                     <Content>
                         <Text style={styles.heading}>Enter Payment Types For Paid Users</Text>
                         <View style={styles.inputsView}>

@@ -4,22 +4,17 @@ import { styles } from './TestList.style';
 import { Button, Container, Content, Footer } from 'native-base';
 import { Overlay } from 'react-native-elements';
 
-class TestList extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
+function TestList ({services,currentTest, visible, handleTestModal, handleTestChange, initialSubServices}) {
 
-        };
-    }
 
-    handleTestChange = (id, price) => {
-        let { handleTestChange, handleTestModal } = this.props
+ 
+
+  const  handleTestChange = (id, price) => {
         handleTestChange(id, price)
         handleTestModal(false)
     }
 
-    render() {
-        const { visible = false, handleTestModal, currentTest, services, initialSubServices } = this.props;
+
         const subServices = services.filter(a => currentTest != a._id)
 
         return (
@@ -39,7 +34,7 @@ class TestList extends Component {
                                 }
                                 
                                 return (
-                                    <TouchableOpacity onPress={() => this.handleTestChange(service?.subService, price)} key={ind}>
+                                    <TouchableOpacity onPress={() => handleTestChange(service?.subService, price)} key={ind}>
                                         <View style={styles.listView} key={ind}>
                                             <Text style={styles.listViewText}>{service.name}</Text>
                                             <Text style={styles.listViewText}>{service?.price} AED</Text>
@@ -59,6 +54,6 @@ class TestList extends Component {
             </Overlay>
         )
     }
-}
+
 
 export default TestList

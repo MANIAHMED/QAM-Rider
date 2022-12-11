@@ -7,8 +7,7 @@ import _ from 'lodash';
 
 
 
-function Appointment() {
-    // const { appointment, handleSelection } = this.props;
+function Appointment({appointment,handleSelection }) {
 
   return (
     <TouchableOpacity style={Styles.appointmentListView} onPress={() => handleSelection(appointment)}>

@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
-import { themeColor, lightTextColor, backgroundColor } from "../../constants";
+import Theme from "../../utils/theme";
+// import { themeColor, lightTextColor, backgroundColor } from "../../constants";
 
 export const styles = StyleSheet.create({
     tabs: {
@@ -13,7 +14,7 @@ export const styles = StyleSheet.create({
     },
     tabText: {
         textAlign: 'center',
-        color: backgroundColor,
+        color: Theme['light'].colors.primary,
         fontWeight: 'bold',
         marginLeft: 5,
         marginRight: 5

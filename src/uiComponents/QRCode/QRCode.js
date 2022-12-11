@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
 import { Text, Modal, View } from 'react-native';
-import { styles } from './QRCode.style';
+import { styles } from './QRCodeStyle';
 import { Button, Container, Content, Footer } from 'native-base';
 import QRCodePkg from 'react-native-qrcode-svg';
 import { consentUrl } from '../../helpers';
 
-export default class QRCode extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-        };
-    }
+function QRCode({visible = false, handleQRModal  })  {
+  
 
-    render() {
-        const { visible = false, handleQRModal } = this.props;
+
 
         return (
             <Modal
@@ -40,4 +35,5 @@ export default class QRCode extends Component {
             </Modal>
         )
     }
-}
+
+export default QRCode;

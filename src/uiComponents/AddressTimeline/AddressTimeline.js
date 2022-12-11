@@ -1,31 +1,32 @@
 import React from 'react'
-import React, { Component } from 'react'
-import { Text, View, Button, Entypo } from 'react-native';
+import React from 'react'
+import { Text, View, Button,  } from 'react-native';
 import Styles from './AddressTimelineStyle';
-import { Actions } from 'react-native-router-flux';
-import { makeCall } from '../../utils/helpers'
+
+import Theme from '../../utils/theme';
+import Entypo from 'react-native-vector-icons/Entypo';
 
 
 
-function AddressTimeline() {
+
+function AddressTimeline({ from, to, isMenuBtn, customerNumber = '' }) {
+
     const [visible, setVisible] = useState(false);
+
     const _openMenu = () => {
         setVisible(true)
     }
     const _closeMenu = () => {
         setVisible(false)
     }
-    // let { from, to, isMenuBtn, customerNumber = '' } = this.props
-
-
     return (
         <View style={Styles.addressTimeline}>
             <View style={Styles.timelineView} >
-                <Entypo name="dot-single" size={30} color={themeColor + '8a'} style={Styles.icon} />
+                <Entypo name="dot-single" size={30} color={Theme['light'].colors.primary + '8a'} style={Styles.icon} />
                 <View style={Styles.timelineBorder}>
 
                 </View>
-                <Entypo name="dot-single" size={30} color={themeColor} style={Styles.icon} />
+                <Entypo name="dot-single" size={30} color={Theme['light'].colors.primary} style={Styles.icon} />
             </View>
             <View style={Styles.addressView}>
                 <View style={Styles.fromAddressView} >

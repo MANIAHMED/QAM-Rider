@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
 import Theme from '../../utils/theme';
-// import { lightTextColor, themeColor, backgroundColor, SH, textColor, loaderBackgroundColor, } from '../../constants';
 
 export default  StyleSheet.create({
     heading: { 

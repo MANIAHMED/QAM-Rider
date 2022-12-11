@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native';
-import { lightTextColor, themeColor, backgroundColor, SH, textColor, } from '../../constants';
+import Theme from '../../utils/theme';
+// import { lightTextColor, themeColor, backgroundColor, SH, textColor, } from '../../constants';
 
 export const styles = StyleSheet.create({
     content: {
-        backgroundColor: backgroundColor,
+        backgroundColor: Theme['light'].colors.background,
         alignItems: 'center',
         justifyContent: 'center',
         flex: 1
@@ -18,16 +19,16 @@ export const styles = StyleSheet.create({
         marginVertical: 15
     },
     footer: {
-        backgroundColor: themeColor
+        backgroundColor: Theme['light'].colors.background
     },
     footerButton: {
-        backgroundColor: themeColor,
+        backgroundColor: Theme['light'].colors.background,
         width: '100%',
         height: '100%',
         justifyContent: 'center'
     },
     footerButtonText: {
-        color: backgroundColor,
+        color: Theme['light'].colors.background,
         fontWeight: 'bold'
     }
 })

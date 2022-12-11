@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { themeColor, backgroundColor } from '../../constants'
-import { styles } from './MerchantUserMarker.style'
+import { styles } from './MerchantUserMarkerStyle';
 import { SvgXml } from 'react-native-svg';
 
 const MerchantUserMarker = ({ width = 80, height = 52, style = {}, color = themeColor, background = backgroundColor }) => {

@@ -6,16 +6,13 @@ export default  StyleSheet.create({
 
     addressTimeline: {
         flexDirection: 'row',
-        // height: '100%',
-        // flex: 1
+      
     },
     timelineView: {
-        // marginLeft: 15,
         width: '12.5%',
         justifyContent: 'center',
     },
     addressView: {
-        // marginLeft: 15,
         width: '87.5%',
         height: '100%',
         justifyContent: 'center',

@@ -1,46 +1,38 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { Text, Modal, View, SafeAreaView } from 'react-native';
-import { styles } from './ShowAmount.style';
+import { styles } from './/ShowAmountStyle';
 import { Button } from 'native-base';
-import { STATUS, PAYMENT_TYPE, backgroundColor, themeColor } from './../../constants'
+import { STATUS, PAYMENT_TYPE, backgroundColor, themeColor } from './../../utils/constant'
 import { TextInput } from 'react-native-paper';
 
 
-export default class ShowAmount extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            rating: 0,
-            remarksVisible: false,
-            remarks: ''
-        };
+function ShowAmount({ handleCollected, visible = false, handleAmountModal, appointments, status, bookingId }) {
+
+    const [rating, setRating] = useState(0)
+    const [remarksVisible, setRemarksVisible] = useState(false)
+    const [remarks, setRemarks] = useState('')
+
+
+
+    const handleRemarksPrompt = () => {
+        setRemarksVisible(true)
     }
 
-    handleRemarksPrompt = () => {
-        this.setState({
-            remarksVisible: true
-        })
+    const handleRemarksClose = () => {
+
+
+        setRemarksVisible(false)
+        setRemarks('')
     }
 
-    handleRemarksClose = () => {
-        this.setState({
-            remarksVisible: false,
-            remarks: ''
-        })
-    }
-
-    handleRemarksSubmit = () => {
-        const { handleCollected } = this.props
-        const { remarks } = this.state
+    const handleRemarksSubmit = () => {
         handleCollected(remarks)
 
-        this.handleRemarksClose()
+        handleRemarksClose()
 
     }
 
-    render() {
-        const { visible = false, handleAmountModal, appointments, status, bookingId } = this.props;
-        const { remarksVisible, remarks } = this.state
+   
 
         let allAppointments = appointments.filter(a => a.status != STATUS.CANCELLED)
 
@@ -105,7 +97,7 @@ export default class ShowAmount extends Component {
                                 underlineColor={'transparent'}
                                 label="Remarks"
                                 value={remarks}
-                                onChangeText={text => this.setState({ remarks: text })}
+                                onChangeText={text => setRemarks(text)}
                             />
                             <View style={styles.remarksModalButtonView}>
                                 <Button
@@ -159,4 +151,4 @@ export default class ShowAmount extends Component {
             </>
         )
     }
-}
+export default ShowAmount;

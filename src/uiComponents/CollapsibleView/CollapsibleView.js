@@ -1,24 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import { View, TouchableOpacity, UIManager, Platform, LayoutAnimation } from 'react-native';
-import { styles } from './CollapsibleView.style';
+import  styles from './CollapsibleViewStyle'
 import { SafeAreaView } from 'react-navigation';
 
-function CollapsibleView() {
+function CollapsibleView({isOpen,expanded, children,header,footer} ){
 
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         expanded: true
-    //     };
+    const [expanded, setExpanded] = useState(true)
 
-    //     if (Platform.OS === 'android') {
-    //         UIManager.setLayoutAnimationEnabledExperimental(true);
-    //     }
-    // }
+  
 
-    changeLayout = (type = 'button') => {
-        // const { expanded } = this.state;
-        const { isOpen, expanded } = this.props;
+  const  changeLayout = (type = 'button') => {
         LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
         if (type == 'user') {
             isOpen(expanded)
@@ -27,14 +18,19 @@ function CollapsibleView() {
         }
     };
 
-    componentDidUpdate(prevProps) {
-        if (prevProps.expanded != this.props.expanded) {
-            this.changeLayout('user')
-        }
-    }
+    useEffect(() => {
+     
+    }, [])
 
-    // render() {
-    //     const { children, header, footer, expanded } = this.props;
+
+
+    // componentDidUpdate(prevProps) {
+    //     if (prevProps.expanded != this.props.expanded) {
+    //         this.changeLayout('user')
+    //     }
+    // }
+
+
         return (
             <View>
 
@@ -42,7 +38,7 @@ function CollapsibleView() {
 
                 <View style={styles.collapseContainer}>
                     <SafeAreaView forceInset={{ top: 'never' }}>
-                        <TouchableOpacity style={styles.collapseButton} onPress={this.changeLayout}>
+                        <TouchableOpacity style={styles.collapseButton} onPress={changeLayout}>
                             <View style={styles.collapseButtonIcon} />
                         </TouchableOpacity>
                         <View style={[{ height: expanded ? 150 : 0, overflow: 'hidden' }]}>
@@ -57,4 +53,6 @@ function CollapsibleView() {
             </View>
         )
     }
- export default CollapsibleView
+
+
+export default CollapsibleView;

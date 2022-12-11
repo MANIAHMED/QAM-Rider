@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { themeColor, backgroundColor } from '../../constants'
-import { styles } from './RiderMarker.style'
+// import { themeColor, backgroundColor } from '../../constants'
+import { styles } from './RiderMarkerStyle';
 import { SvgXml } from 'react-native-svg';
 
 const RiderMarker = ({ width = 80, height = 52, style = {}, color = themeColor, background = backgroundColor }) => {

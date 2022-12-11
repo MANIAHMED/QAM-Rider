@@ -3,7 +3,7 @@ import { Text, View } from 'react-native'
 import RNSwipeVerify from 'react-native-swipe-verify'
 import { SW, themeColor, backgroundColor } from '../../constants'
 import LottieView from 'lottie-react-native';
-import { styles } from './SliderButton.style';
+import { styles } from './SliderButtonStyle';
 
 const SliderButton = ({ handleSliderCompleted, buttonText }) => {
     var swipeVerify2 = null
@@ -26,7 +26,7 @@ const SliderButton = ({ handleSliderCompleted, buttonText }) => {
                 icon={
                     <View style={styles.animationIconContainer}>
                         <LottieView
-                            source={require('./../../assets/arrow-right.json')}
+                            // source={require('./../../assets/arrow-right.json')}
                             autoPlay
                             speed={1.5}
                             style={styles.animationIcon}
