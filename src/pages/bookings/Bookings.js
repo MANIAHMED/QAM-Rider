@@ -1,16 +1,16 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { View, TouchableOpacity } from 'react-native'
 import { styles } from './BookingStyle'
-import { backgroundColor, PAYMENT_TYPE, STATUS, themeColor } from '../../utils/constant'
-import { Container, Content, ListItem, Left, Text, Body, Right } from 'native-base'
+import { STATUS } from '../../utils/constant'
+import { Container, Content, Text } from 'native-base'
 import i18n from './../../i18n'
-import { connect, useDispatch, useSelector } from 'react-redux'
+import {  useDispatch, useSelector } from 'react-redux'
 import Header from './../../components/Header/Header'
 import { ScrollView } from 'react-native-gesture-handler'
 import { numberFix } from '../../helpers'
 import CustomToast from '../../uiComponents/Toast/Toast'
 import Loader from '../../uiComponents/Loader/Loader'
-import { updateExtra } from '../../store/middlewares/extra_middleware';
+import { updateExtra } from '../../store/middlewares/extra.middleware';
 import { updateAppointmentTest, UpdateAppointmentToCancel, UpdateBookingData, updateBookingTest, updateLocalBooking, updatePaymentTypes, updateVTMAndLab } from '../../store/middlewares/booking.middleware'
 import Appointments from '../../uiComponents/Appointments/Appointments'
 import { sendToLab } from '../../store/middlewares/completed_bookings.middleware'
@@ -20,6 +20,7 @@ import TestList from '../../uiComponents/TestList/TestList'
 import QRCode from '../../uiComponents/QRCode/QRCode'
 import GetPaymentType from '../../uiComponents/GetPaymentType/GetPaymentType'
 import ShowAmount from '../../uiComponents/ShowAmount/ShowAmount'
+import Theme from '../../utils/theme'
 
 function Bookings({
     user,
@@ -31,7 +32,6 @@ function Bookings({
     sendToLab,
     updatePaymentTypes,
     updateVTMAndLab,
-
     lng,
     openControlPanel,
     bookings = [],
@@ -120,24 +120,13 @@ function Bookings({
         return `${numberFix(startTime.getHours())}:${numberFix(startTime.getMinutes())} - ${numberFix(endTime.getHours())}:${numberFix(endTime.getMinutes())}`
     }
 
-    // handleToastClose = () => {
-    //     let { updateExtra } = this.props
-    //     updateExtra({ error: '' })
-    // }
+
 
     const handleToastClose = () => {
         dispatch(updateExtra({ error: '' }))
     }
 
-    // handleCancelAppointment = (appointmentId) => {
-    //     const { cancelAppointment } = this.props
-    //     const { currentBooking } = this.state
-    //     cancelAppointment(appointmentId, currentBooking._id, (updatedBooking) => {
-    //         this.setState({
-    //             currentBooking: updatedBooking
-    //         })
-    //     })
-    // }
+
 
     const handleCancelAppointment = (appointmentId) => {
 
@@ -173,9 +162,6 @@ function Bookings({
                 setCurrentBooking(null);
             }
         }))
-
-
-
     }
 
 
@@ -188,20 +174,13 @@ function Bookings({
             return
         }
 
-        // if (!labId) {
-        //     updateExtra({ error: 'Lab ID is required' })
-        //     return
-        // }
+     
 
         if (!labName) {
             dispatch(updateExtra({ error: 'Lab Name is required' }))
             return
         }
 
-        // if (!image) {
-        //     updateExtra({ error: 'Consent form image is required' })
-        //     return
-        // }
 
         setShowInfoModal(true)
 
@@ -213,7 +192,6 @@ function Bookings({
 
             setCurrentBooking(updatedBooking)
             callback()
-            // this.handleInfoModal(false)
         }))
 
 
@@ -284,23 +262,17 @@ function Bookings({
     }
 
     const handleBookingDetailsModal = (state) => {
-        // this.setState({
-        //     showBookingDetailsModal: state
-        // })
+     
         setShowBookingDetailsModal(state)
     }
 
     const handleTestModal = (state) => {
-        // this.setState({
-        //     showTestModal: state,
-        // })
+ 
         showTestModal(state)
     }
 
     const handleQRModal = (state) => {
-        // this.setState({
-        //     showQRModal: state
-        // })
+
         setShowQRModal(state)
     }
 
@@ -469,12 +441,12 @@ function Bookings({
 const Tab = ({ label, value, handleTabChange, currentTab }) => {
     return (
         <TouchableOpacity
-            style={[styles.tabView, { backgroundColor: currentTab == value ? backgroundColor : themeColor }]}
+            style={[styles.tabView, { backgroundColor: currentTab == value ? backgroundColor : Theme['light'].colors.background }]}
             onPress={() => handleTabChange(value)}
         >
             <View>
                 <Text
-                    style={[styles.tabText, { color: currentTab == value ? themeColor : backgroundColor }]}
+                    style={[styles.tabText, { color: currentTab == value ? themeColor : Theme['light'].colors.background }]}
                 >
                     {label}
                 </Text>

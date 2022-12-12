@@ -34,7 +34,7 @@ import Loader from '../../uiComponents/Loader/Loader';
 import ShowAmount from '../../uiComponents/ShowAmount/ShowAmount';
 import RiderMarker from '../../uiComponents/RiderMarker/RiderMarker';
 import MerchantUserMarker from '../../uiComponents/MerchantUserMarker/MerchantUserMarker';
-// import BackgroundGeolocation from '@mauron85/react-native-background-geolocation';
+import BackgroundGeolocation from '@darron1217/react-native-background-geolocation';
 import { baseUrl, consentUrl, numberFix } from '../../helpers';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { getUserAddress } from '../../store/middlewares/user.middleware';

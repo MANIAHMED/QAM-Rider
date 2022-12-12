@@ -1,10 +1,10 @@
-import React, {  useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { Text, View, ScrollView, TouchableOpacity } from 'react-native'
 import { styles } from './TabsStyle'
 import { connect } from 'react-redux'
 import store from '../../store';
 
-function Tabs({ handleBookingChange, bookings }) {
+function Tabs({ handleBookingChange }) {
 
 
     const [selectedId, setSelectedId] = useState('')
@@ -13,25 +13,28 @@ function Tabs({ handleBookingChange, bookings }) {
 
     const reduxState = useSelector((states) => {
         return {
-            bookings: states.bookings
+            bookingsData: states.bookings
 
         }
     });
 
+    const { bookingsData } = reduxState;
+
+
     useEffect(() => {
-        if (selectedId == '' && bookings.length) {
-            handleBookingsSelect(bookings[0])
+        if (selectedId == '' && bookingsData.length) {
+            handleBookingsSelect(bookingsData[0])
         }
-        if (bookings.findIndex(a => a._id == selectedId) == -1) {
-            if (bookings.length) {
-                handleBookingsSelect(bookings[0])
+        if (bookingsData.findIndex(a => a._id == selectedId) == -1) {
+            if (bookingsData.length) {
+                handleBookingsSelect(bookingsData[0])
             } else {
                 handleBookingsSelect(null)
             }
         }
-        setBookings(bookings)
+        setBookings(bookingsData)
 
-    }, [bookings])
+    }, [bookings, selectedId])
 
 
 
@@ -48,14 +51,14 @@ function Tabs({ handleBookingChange, bookings }) {
     return (
         <>
             {
-                bookings.length ?
+                bookingsData.length ?
                     <ScrollView
                         contentContainerStyle={styles.tabs}
                         horizontal={true}
                         showsHorizontalScrollIndicator={false}
                     >
                         {
-                            bookings?.map((booking, ind) => (
+                            bookingsData?.map((booking, ind) => (
                                 booking.status !== 'completed' &&
                                 <TouchableOpacity
                                     key={ind}

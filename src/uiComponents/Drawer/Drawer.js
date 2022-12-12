@@ -7,7 +7,7 @@ import StarRating from 'react-native-star-rating';
 import { textColor, backgroundColor } from '../../utils/helpers';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { connect, useDispatch, useSelector } from 'react-redux'
-// import BackgroundGeolocation from '@mauron85/react-native-background-geolocation';
+import BackgroundGeolocation from '@darron1217/react-native-background-geolocation';
 import { LogoutUser } from '../../helpers/apis';
 import { Socket } from 'socket.io-client';
 import axios from 'axios';
