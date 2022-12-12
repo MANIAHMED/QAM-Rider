@@ -1,26 +1,57 @@
-import { StyleSheet } from "react-native";
-import Theme from "../../utils/theme";
+import { StyleSheet } from 'react-native'
+import { SH, themeColor, lightTextColor, backgroundColor } from '../../constants';
 
-
-export default StyleSheet.create({
+export const styles = StyleSheet.create({
     container: {
-        backgroundColor: Theme['light'].colors.background,
+        height: '100%',
+        width: '100%'
     },
-    textView: {
-        width: '90%',
-        alignSelf: 'center'
+    mapContainer: {
+        flex: 1
     },
-    heading: {
-        marginTop: 20,
-        fontSize: 24,
+    map: {
+        flex: 1
+    },
+    currentLocationButton: {
+        backgroundColor: backgroundColor,
+        position: 'absolute',
+        height: 40,
+        width: 40,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 5,
+        right: 10,
+        top: 10
+    },
+    trafficButton: {
+        backgroundColor: backgroundColor,
+        position: 'absolute',
+        height: 40,
+        width: 40,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 5,
+        right: 10,
+        top: 60
+    },
+    navigateButton: {
+        backgroundColor: themeColor,
+        position: 'absolute',
+        bottom: 10,
+        right: 10
+    },
+    navigateButtonText: {
+        color: backgroundColor,
+        fontWeight: 'bold'
+    },
+    merchantNameHeading: {
+        textAlign: 'center',
         fontWeight: 'bold',
-        color: Theme['light'].colors.primary,
-        alignSelf: 'center'
+        fontSize: 16,
+        color: themeColor,
+        marginTop: 10
     },
-    text: {
-        marginTop: 20,
-        marginBottom: 10,
-        color: textColor,
-        fontSize: 18
+    logo: {
+        // aspectRatio: 500 / 700
     }
-})
+});

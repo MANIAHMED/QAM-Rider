@@ -5,7 +5,7 @@ import { LoginUser, CheckAuth, SetUnavailable, SetAvailable, GetUserAddress } fr
 import { Actions } from "react-native-router-flux";
 import BackgroundGeolocation from '@mauron85/react-native-background-geolocation';
 import io from 'socket.io-client'
-import { baseUrl } from './../../helpers/index'
+import { baseUrl } from '../../helpers/index'
 import axios from "axios";
 import { fetchBookingData } from "./booking.middleware";
 
