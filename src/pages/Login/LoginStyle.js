@@ -44,7 +44,7 @@ export const styles = StyleSheet.create({
         backgroundColor: Theme['light'].colors.background
     },
     buttonText: {
-        color: backgroundColor,
+        color: Theme['light'].colors.background ,
         fontWeight: 'bold',
         fontSize: 16
     }

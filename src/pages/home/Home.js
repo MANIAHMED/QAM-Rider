@@ -5,7 +5,7 @@ import i18n from './../../i18n'
 import Header from './../../uiComponents/Header/Header'
 import Footer from '../../uiComponents/Footer/Footer';
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
-import { styles } from './Home.styles';
+import { styles } from './HomeStyle';
 import { check, PERMISSIONS, RESULTS, request } from 'react-native-permissions';
 import { themeColor, googleApiKey, backgroundColor, STATUS, PAYMENT_TYPE, RECORD_TYPE } from '../../utils/constant';
 import CollapsibleView from './../../uiComponents/CollapsibleView/CollapsibleView'
@@ -23,7 +23,7 @@ import {
   updatePaymentTypes
 } from '../../store/middlewares/booking.middleware';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
-import Geolocation from 'react-native-geolocation-service';
+// import Geolocation from 'react-native-geolocation-service';
 import MapViewDirections from 'react-native-maps-directions';
 import SliderButton from '../../uiComponents/SliderButton/SliderButton';
 import LaunchNavigator from 'react-native-launch-navigator';
@@ -34,7 +34,7 @@ import Loader from '../../uiComponents/Loader/Loader';
 import ShowAmount from '../../uiComponents/ShowAmount/ShowAmount';
 import RiderMarker from '../../uiComponents/RiderMarker/RiderMarker';
 import MerchantUserMarker from '../../uiComponents/MerchantUserMarker/MerchantUserMarker';
-import BackgroundGeolocation from '@darron1217/react-native-background-geolocation';
+// import BackgroundGeolocation from '@darron1217/react-native-background-geolocation';
 import { baseUrl, consentUrl, numberFix } from '../../helpers';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { getUserAddress } from '../../store/middlewares/user.middleware';
@@ -54,7 +54,20 @@ const LONGITUDE_DELTA = 0.0121
 const { width, height } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
 
-function Home({ user, UpdateBookingToCancel, updateLocalBooking, bookings, cancelAppointment, getBookings, fetchLabData, updateExtra, updateBookings, updateAppointmentTest, updateExtra, updateVTMAndLab }) {
+function Home({
+  user,
+  UpdateBookingToCancel,
+  updateLocalBooking,
+  bookings,
+  cancelAppointment,
+  getBookings,
+  fetchLabData,
+  updateExtra,
+  updateBookings,
+  updateAppointmentTest,
+  // updateExtra,
+  updateVTMAndLab
+}) {
 
   const { navigation } = props;
   const dispatch = useDispatch();
@@ -487,7 +500,7 @@ function Home({ user, UpdateBookingToCancel, updateLocalBooking, bookings, cance
   }
 
   const getMarkerColor = () => {
-    return themeColor + '8a'
+    return Theme['light'].colors.background  + '8a'
   }
 
   const showProductsModals = () => {
@@ -514,7 +527,7 @@ function Home({ user, UpdateBookingToCancel, updateLocalBooking, bookings, cance
   const handleAppointmentTestChange = (testId, appointmentId, price) => {
 
 
-    dispatch(updateAppointmentTest(appointmentId, testId, currentBooking._id, price, ({data,greater})=>{
+    dispatch(updateAppointmentTest(appointmentId, testId, currentBooking._id, price, ({ data, greater }) => {
       if (greater) {
         let getPaymentTypeData = {
           _id: currentBooking._id,
@@ -566,7 +579,7 @@ function Home({ user, UpdateBookingToCancel, updateLocalBooking, bookings, cance
 
 
 
-    dispatch(updateBookingTest(currentBooking._id, testId, price, ({data,greater})=>{
+    dispatch(updateBookingTest(currentBooking._id, testId, price, ({ data, greater }) => {
 
       if (greater) {
         let getPaymentTypeData = {
@@ -750,7 +763,7 @@ function Home({ user, UpdateBookingToCancel, updateLocalBooking, bookings, cance
     //   handleGetPaymentTypeModal(false)
     // })
 
-    dispatch(updatePaymentTypes(currentBooking.getPaymentTypeData, (data)=>{
+    dispatch(updatePaymentTypes(currentBooking.getPaymentTypeData, (data) => {
       setCurrentBooking(data)
       handleGetPaymentTypeModal(false)
     }))
@@ -902,7 +915,7 @@ function Home({ user, UpdateBookingToCancel, updateLocalBooking, bookings, cance
                           }}
                           apikey={googleApiKey}
                           strokeWidth={5}
-                          strokeColor={themeColor}
+                          strokeColor={Theme['light'].colors.background }
                           optimizeWaypoints={false}
                           // precision={'high'}
                           resetOnChange={false}
@@ -929,14 +942,14 @@ function Home({ user, UpdateBookingToCancel, updateLocalBooking, bookings, cance
 
           }
           <Button style={styles.currentLocationButton} onPress={handleCenterMap} >
-            <MaterialIcons name={'my-location'} size={30} color={themeColor} />
+            <MaterialIcons name={'my-location'} size={30} color={Theme['light'].colors.background } />
           </Button>
-          <Button style={[styles.trafficButton, { backgroundColor: showTraffic ? themeColor : backgroundColor }]} onPress={() => setShowTraffic(!showTraffic)} >
-            <MaterialIcons name={'traffic'} size={30} color={showTraffic ? backgroundColor : themeColor} />
+          <Button style={[styles.trafficButton, { backgroundColor: showTraffic ? Theme['light'].colors.background  : Theme['light'].colors.background  }]} onPress={() => setShowTraffic(!showTraffic)} >
+            <MaterialIcons name={'traffic'} size={30} color={showTraffic ? Theme['light'].colors.background  : Theme['light'].colors.background } />
           </Button>
           {
             currentBooking &&
-            <Button rounded style={styles.navigateButton} onPress={this.handleNavigate} >
+            <Button rounded style={styles.navigateButton} onPress={handleNavigate} >
               <Text style={styles.navigateButtonText} >Navigate</Text>
             </Button>
           }

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { Text, View, ScrollView, TouchableOpacity } from 'react-native'
 import { styles } from './TabsStyle'
-import { connect } from 'react-redux'
 import store from '../../store';
 
 function Tabs({ handleBookingChange }) {
@@ -62,7 +61,7 @@ function Tabs({ handleBookingChange }) {
                                 booking.status !== 'completed' &&
                                 <TouchableOpacity
                                     key={ind}
-                                    style={[styles.tab, { backgroundColor: selectedId == booking._id ? themeColor : themeColor + '8a' }]}
+                                    style={[styles.tab, { backgroundColor: selectedId == booking._id ? Theme['light'].colors.background  : Theme['light'].colors.background  + '8a' }]}
                                     onPress={() => handleBookingsSelect(booking)}
                                 >
                                     <View>

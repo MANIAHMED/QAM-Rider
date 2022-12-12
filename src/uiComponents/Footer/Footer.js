@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
 import { Text, View, TouchableHighlight, TouchableNativeFeedback, TouchableOpacity } from 'react-native'
 import { Footer as NBFooter, FooterTab, Body, Left, Right } from 'native-base'
-import { themeColor, backgroundColor } from '../../constants'
-import { styles } from './Footer.style'
+// import { themeColor, backgroundColor } from '../../constants'
+import { styles } from './FooterStyle'
 import SwitchToggle from '@dooboo-ui/native-switch-toggle';
 import i18n from './../../i18n'
 import LottieView from 'lottie-react-native';
 import { connect, useDispatch, useSelector } from 'react-redux'
 import { changeUserAvailablity } from '../../store/middlewares/user.middleware'
+import Theme from '../../utils/theme';
 
-function Footer({ handleCollapsibleView, lng, expanded, bookings = [], isAvailable, changeUserAvailablity }) {
+function Footer({ handleCollapsibleView, lng, expanded,  changeUserAvailablity }) {
     
 
     const dispatch = useDispatch()
@@ -56,7 +57,7 @@ function Footer({ handleCollapsibleView, lng, expanded, bookings = [], isAvailab
                                         }
                                     ]}
                                     style={styles.animation}
-                                    source={expanded ? require('./../../assets/arrow-down.json') : require('./../../assets/arrow-up.json')}
+                                    source={expanded ? require('./../../assets/images/arrow-down.json') : require('./../../assets/images/arrow-up.json')}
                                 />
                             </TouchableOpacity> : null
                     }
@@ -70,10 +71,10 @@ function Footer({ handleCollapsibleView, lng, expanded, bookings = [], isAvailab
                         containerStyle={styles.switchContainer}
                         circleStyle={styles.switchCircle}
                         onPress={() => dispatch(changeUserAvailablity())}
-                        backgroundColorOff={backgroundColor}
-                        backgroundColorOn={backgroundColor + 'c7'}
-                        circleColorOn={themeColor}
-                        circleColorOff={themeColor + '6e'}
+                        backgroundColorOff={Theme['light'].colors.background}
+                        backgroundColorOn={Theme['light'].colors.background + 'c7'}
+                        circleColorOn={Theme['light'].colors.primary}
+                        circleColorOff={Theme['light'].colors.primary + '6e'}
                     />
                 </Right>
             </NBFooter>

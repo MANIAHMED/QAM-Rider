@@ -3,7 +3,7 @@ import { users } from "../actions";
 import { updateExtra } from './extra.middleware'
 import { LoginUser, CheckAuth, SetUnavailable, SetAvailable, GetUserAddress } from "../../helpers/apis";
 import { Actions } from "react-native-router-flux";
-import BackgroundGeolocation from '@darron1217/react-native-background-geolocation';
+// import BackgroundGeolocation from '@darron1217/react-native-background-geolocation';
 import io from 'socket.io-client'
 import { baseUrl } from '../../helpers/index'
 import axios from "axios";

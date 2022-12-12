@@ -8,7 +8,7 @@ import { Button } from 'native-base';
 import { STATUS } from './../../utils/constant'
 
 
-function BottomSheet({ handleInfoModal, appointment: { status, sendToLab, user }, handleCancelAppointment, handleTestModal, handleSendToLab, testChangable, handleClose }) {
+function BottomSheet({ handleInfoModal, appointment: { status, sendToLab, user }, testChangable, handleClose }) {
 
 
     const refRBSheet = useRef(null);

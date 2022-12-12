@@ -3,7 +3,7 @@ import { View, TouchableOpacity, UIManager, Platform, LayoutAnimation } from 're
 import styles from './CollapsibleViewStyle'
 import { SafeAreaView } from 'react-navigation';
 
-function CollapsibleView({ isOpen, expanded, children, header, footer }) {
+function CollapsibleView({ isOpen,  children, header, footer }) {
 
     const [expanded, setExpanded] = useState(true)
 

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { lightTextColor, themeColor } from '../../constants'
+// import { lightTextColor, themeColor } from '../../constants'
 import Theme from '../../utils/theme'
 
 export default  StyleSheet.create({
@@ -36,7 +36,7 @@ export default  StyleSheet.create({
     addressLineOne: {
         fontWeight: 'bold',
         fontSize: 14,
-        color: themeColor
+        color: Theme['light'].colors.dark_text
     },
     addressLineTwo: {
         color: Theme['light'].colors.dark_text,

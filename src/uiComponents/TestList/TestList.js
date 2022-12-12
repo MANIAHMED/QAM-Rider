@@ -1,10 +1,10 @@
 import React from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
-import { styles } from './TestList.style';
+import { styles } from './TestListStyle';
 import { Button, Container, Content, Footer } from 'native-base';
 import { Overlay } from 'react-native-elements';
 
-function TestList({ services, currentTest, visible, handleTestModal, handleTestChange, initialSubServices }) {
+function TestList({ services, currentTest, visible, handleTestModal,  initialSubServices }) {
 
 
     const handleTestChange = (id, price) => {
@@ -36,7 +36,6 @@ function TestList({ services, currentTest, visible, handleTestModal, handleTestC
                                         <Text style={styles.listViewText}>{service?.price} AED</Text>
                                     </View>
                                 </TouchableOpacity>
-
                             )
                         })
                     }

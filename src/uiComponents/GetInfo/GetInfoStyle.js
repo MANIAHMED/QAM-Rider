@@ -1,16 +1,17 @@
 import { StyleSheet } from 'react-native';
-import { lightTextColor, themeColor, backgroundColor, SH, textColor, } from '../../constants';
+import Theme from '../../utils/theme';
+// import { lightTextColor, themeColor, backgroundColor, SH, textColor, } from '../../constants';
 
 export const styles = StyleSheet.create({
     mainContainer: {
-        backgroundColor: backgroundColor,
+        backgroundColor: Theme['light'].colors.background,
         width: '100%',
         height: '100%',
         justifyContent: 'space-evenly'
     },
     infoText: {
         textAlign: 'center',
-        color: themeColor,
+        color: Theme['light'].colors.primary,
         fontWeight: 'bold',
         fontSize: 22
     },
@@ -20,12 +21,12 @@ export const styles = StyleSheet.create({
     },
     inputItem: {
         borderBottomWidth: 2,
-        borderBottomColor: themeColor,
+        borderBottomColor: Theme['light'].colors.primary,
         marginTop: 5,
         marginBottom: 5
     },
     input: {
-        color: textColor,
+        color: Theme['light'].colors.primary,
         height: 55
     },
     button: {
@@ -35,7 +36,7 @@ export const styles = StyleSheet.create({
         marginTop: 5,
         marginBottom: 5,
         justifyContent: 'center',
-        backgroundColor: themeColor
+        backgroundColor: Theme['light'].colors.background
     },
     uploadButton: {
         alignSelf: 'center',
@@ -45,17 +46,17 @@ export const styles = StyleSheet.create({
         marginBottom: 5,
         justifyContent: 'center',
         elevation: 0,
-        borderColor: themeColor,
+        borderColor: Theme['light'].colors.primary,
         borderWidth: 2,
         backgroundColor: 'transparent'
     },
     buttonText: {
-        color: backgroundColor,
+        color: Theme['light'].colors.primary,
         fontWeight: 'bold',
         fontSize: 16
     },
     uploadButtonText: {
-        color: themeColor,
+        color: Theme['light'].colors.primary,
         fontWeight: 'bold',
         fontSize: 16
     },

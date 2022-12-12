@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native';
-import { backgroundColor, themeColor, textColor, lightTextColor } from '../../constants';
+import Theme from '../../utils/theme';
+// import { backgroundColor, themeColor, textColor, lightTextColor } from '../../constants';
 
 export const styles = StyleSheet.create({
     headerTabsContainer: {
-        backgroundColor: themeColor,
+        backgroundColor: Theme['light'].colors.background,
         paddingBottom: 10,
         // flexDirection: 'row',
         // width: '100%',
@@ -30,7 +31,7 @@ export const styles = StyleSheet.create({
     },
     container: {
         // height: '100%',
-        backgroundColor: backgroundColor,
+        backgroundColor: Theme['light'].colors.background,
         paddingBottom: 10,
         paddingHorizontal: 10
     },
@@ -57,12 +58,12 @@ export const styles = StyleSheet.create({
     },
     itemName: {
         fontSize: 14,
-        color: themeColor,
+        color: Theme['light'].colors.background ,
         fontWeight: 'bold',
         flex: 1
     },
     itemStatus: { 
-        backgroundColor: themeColor,
+        backgroundColor: Theme['light'].colors.background,
         color: backgroundColor,
         textAlign: 'center',
         width: '100%',
@@ -80,7 +81,7 @@ export const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     addressHeading: {
-        color: themeColor,
+        color: Theme['light'].colors.background ,
         fontSize: 12,
         fontWeight: 'bold',
         marginRight: 5
@@ -95,7 +96,7 @@ export const styles = StyleSheet.create({
     },
     priceTextBold: {
         fontSize: 10,
-        color: themeColor
+        color: Theme['light'].colors.background,
     },
 
     left: {
@@ -105,12 +106,12 @@ export const styles = StyleSheet.create({
         height: 70,
         width: 70,
         borderRadius: 70,
-        backgroundColor: themeColor,
+        backgroundColor: Theme['light'].colors.background,
         alignItems: 'center',
         justifyContent: 'center'
     },
     thumbnailText: {
-        color: backgroundColor,
+        color: Theme['light'].colors.primary,
         fontWeight: 'bold'
     },
     body: {
@@ -129,18 +130,18 @@ export const styles = StyleSheet.create({
     },
     merchantName: {
         fontWeight: 'bold',
-        color: themeColor
+        color: Theme['light'].colors.primary,
     },
     bodyText: {
         fontSize: 14,
-        color: textColor,
+        color: Theme['light'].colors.primary,
     },
     bodyHeading: {
         fontWeight: 'bold'
     },
     timeText: {
         fontSize: 14,
-        color: lightTextColor
+        color: Theme['light'].colors.primary
     },
     statusPriceView: {
         justifyContent: 'space-between', 
@@ -154,12 +155,12 @@ export const styles = StyleSheet.create({
         paddingTop: 2,
         paddingBottom: 4,
         borderRadius: 15,
-        backgroundColor: themeColor,
+        backgroundColor: Theme['light'].colors.primary,
         justifyContent: 'center'
     },
     statusText: {
         fontWeight: 'bold',
-        color: backgroundColor,
+        color: Theme['light'].colors.primary,
         textAlign: 'center',
         width: '100%'
     },

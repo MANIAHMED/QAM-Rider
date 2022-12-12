@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native';
-import { lightTextColor, themeColor, backgroundColor, SH, textColor, } from '../../constants';
+import Theme from '../../utils/theme';
+// import { lightTextColor, themeColor, backgroundColor, SH, textColor, } from '../../constants';
 
 export const styles = StyleSheet.create({
     heading: {
-        color: themeColor,
+        color: Theme['light'].colors.primary,
         textAlign: 'center',
         marginTop: 20,
         marginBottom: 20,
@@ -27,7 +28,7 @@ export const styles = StyleSheet.create({
     },
     inputItem: {
         borderBottomWidth: 2,
-        borderBottomColor: themeColor,
+        borderBottomColor: Theme['light'].colors.primary,
         marginTop: 5,
         marginBottom: 5
     },
@@ -43,16 +44,16 @@ export const styles = StyleSheet.create({
         marginBottom: 5
     },
     footer: {
-        backgroundColor: themeColor
+        backgroundColor: Theme['light'].colors.primary
     },
     footerButton: {
-        backgroundColor: themeColor,
+        backgroundColor: Theme['light'].colors.primary,
         width: '100%',
         height: '100%',
         justifyContent: 'center'
     },
     footerButtonText: {
-        color: backgroundColor,
+        color: Theme['light'].colors.primary,
         fontWeight: 'bold'
     }
 })

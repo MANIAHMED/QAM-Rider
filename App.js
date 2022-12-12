@@ -1,11 +1,13 @@
 
 import React, { useEffect, useState } from "react";
-import { Provider, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Root from "native-base";
-import { Provider } from 'react-native-paper'
+import {Provider} from 'react-native-paper'
 import { onesignalAppId } from "./src/utils/constant";
 import i18n from './src/i18n';
+import theme from './src/utils/theme';
+import Routes from "./src/routes";
 
 const App = () => {
 
@@ -17,8 +19,6 @@ const App = () => {
       await AsyncStorage.setItem('NOTIFICATION_TOKEN', device.userId)
     }
   }
-
-
 
   useEffect(() => {
     OneSignal.init(onesignalAppId);
@@ -42,7 +42,7 @@ const App = () => {
   }
 
   return (
-    <Provider>
+    <Provider  >
       <Root>
         {
           lng &&
@@ -54,7 +54,6 @@ const App = () => {
       </Root>
     </Provider>
   )
-
 }
 
 export default App;

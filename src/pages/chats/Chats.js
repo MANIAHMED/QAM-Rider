@@ -5,7 +5,7 @@ import { Container, Content } from 'native-base'
 import Header from '../../components/Header/Header'
 import i18n from './../../i18n'
 import { GiftedChat, Bubble } from 'react-native-gifted-chat'
-import { themeColor, lightTextColor, textColor, backgroundColor } from '../../constants'
+// import { themeColor, lightTextColor, textColor, backgroundColor } from '../../constants'
 import { SendChat, GetChats } from '../../helpers/apis'
 import CustomToast from '../../components/Toast/Toast'
 import Loader from '../../components/Loader/Loader'
@@ -37,15 +37,10 @@ function Chats ({order, updateExtra, user, lng, openControlPanel, loading, error
         handleSocketMessages()
         AppState.addEventListener('change', this.handleAppStateChange)
 
-
         return () => AppState.removeEventListener('change', this.handleAppStateChange)
-
-
     }, []);
 
-   
 
-   
    const handleAppStateChange = async () => {
         if (AppState.currentState == 'active') {
             fetchOrderChat()
@@ -126,8 +121,8 @@ function Chats ({order, updateExtra, user, lng, openControlPanel, loading, error
 
    const renderBubble = (props) => {
         return (
-            <View style={[styles.bubble, { backgroundColor: props.currentMessage.user._id == userId ? themeColor : lightTextColor }]} >
-                <Text style={[styles.messageText, { color: props.currentMessage.user._id == userId ? backgroundColor : textColor }]} >{props.currentMessage.text}</Text>
+            <View style={[styles.bubble, { backgroundColor: props.currentMessage.user._id == userId ? Theme['light'].colors.background  : Theme['light'].colors.background  }]} >
+                <Text style={[styles.messageText, { color: props.currentMessage.user._id == userId ? Theme['light'].colors.background  : Theme['light'].colors.background  }]} >{props.currentMessage.text}</Text>
             </View>
         )
     }
@@ -142,7 +137,7 @@ function Chats ({order, updateExtra, user, lng, openControlPanel, loading, error
             <Container style={styles.container} >
                 {
                     error !== '' &&
-                    <CustomToast text={error} duration={3000} onClose={this.handleToastClose} />
+                    <CustomToast text={error} duration={3000} onClose={handleToastClose} />
                 }
                 <Loader loading={loading} />
                 <Header title={'Chat'} lng={lng} leftButtonType={'back'} showWallet={false} openControlPanel={openControlPanel} />

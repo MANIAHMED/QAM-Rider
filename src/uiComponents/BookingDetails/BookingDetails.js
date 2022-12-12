@@ -3,14 +3,13 @@ import { Text, Modal, View, ScrollView, TouchableOpacity, Share } from 'react-na
 import styles from './BookingDetailsStyle';
 import { Button, Container, Content, Footer } from 'native-base';
 import { STATUS } from '../../utils/constant';
-import Loader from '../../components/Loader/Loader';
+import Loader from '../../uiComponents/Loader/Loader';
 import CustomToast from '../Toast/Toast';
 import { consentUrl, makeCall, numberFix } from '../../helpers';
 import { GetUserAddress } from '../../helpers/apis';
 
 
 function BookingDetails({ 
-    currentBooking,
     handleAppointmentModal,
     loading,
     error,
@@ -21,7 +20,6 @@ function BookingDetails({
     visible,
     handleBookingDetailsModal, 
     handleAppointmentTestChange, 
-    handleTestModal, 
     showButtons = true, 
     handleAmountModal, 
     testChangable = true

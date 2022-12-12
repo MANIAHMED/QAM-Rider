@@ -1,9 +1,9 @@
 import { StyleSheet } from 'react-native';
-import { lightTextColor, themeColor, backgroundColor, SH, textColor, } from '../../constants';
+import Theme from '../../utils/theme';
 
 export const styles = StyleSheet.create({
     content: {
-        backgroundColor: backgroundColor
+        backgroundColor: Theme['light'].colors.background
     },
     listView: {
         flexDirection: 'row',
@@ -11,25 +11,25 @@ export const styles = StyleSheet.create({
         paddingBottom: 10,
         // margin: 2,
         justifyContent: 'space-between',
-        borderBottomColor: lightTextColor + '5b',
+        borderBottomColor:  Theme['light'].colors.primary + '5b',
         borderBottomWidth: 0.5
     },
     listViewText: {
-        color: lightTextColor,
+        color: Theme['light'].colors.primary ,
         // fontWeight: 'bold',
         fontSize: 18
     },
     footer: {
-        backgroundColor: themeColor
+        backgroundColor: Theme['light'].colors.background 
     },
     footerButton: {
-        backgroundColor: themeColor,
+        backgroundColor: Theme['light'].colors.background ,
         width: '100%',
         height: '100%',
         justifyContent: 'center'
     },
     footerButtonText: {
-        color: backgroundColor,
+        color: Theme['light'].colors.primary ,
         fontWeight: 'bold'
     }
 })

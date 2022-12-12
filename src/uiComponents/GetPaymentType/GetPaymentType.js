@@ -1,12 +1,13 @@
 import React from 'react';
 import { Text, Modal, View, Picker, } from 'react-native';
-import { styles } from './GetPaymentType.style';
+import { styles } from './GetPaymentTypeStyle';
 import { Body, Button, Card, CardItem, Container, Content, Footer, Item } from 'native-base';
 import { PAYMENT_TYPE } from '../../utils/constant';
 import Loader from '../Loader/Loader';
 import CustomToast from '../Toast/Toast';
 
-function GetPaymentType ({  visible = false,
+function GetPaymentType ({ 
+     visible = false,
     error,
     loading,
     handlePaymentTypeChange,

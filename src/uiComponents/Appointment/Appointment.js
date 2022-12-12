@@ -1,4 +1,3 @@
-import React from 'react'
 import React from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 import Styles from './AppointmentStyles'

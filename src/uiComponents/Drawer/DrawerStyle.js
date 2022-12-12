@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native'
-import { themeColor, textColor, backgroundColor } from '../../constants';
+import Theme from '../../utils/theme';
+// import { themeColor, textColor, backgroundColor } from '../../constants';
 
 export const styles = StyleSheet.create({
     container: {
@@ -10,7 +11,7 @@ export const styles = StyleSheet.create({
     bannerView: {
         height: '10%',
         width: '100%',
-        backgroundColor: themeColor,
+        backgroundColor: Theme['light'].colors.background,
         flexDirection: 'row',
         paddingLeft: 20
     },
@@ -26,7 +27,7 @@ export const styles = StyleSheet.create({
     nameText: {
         fontSize: 24,
         fontWeight: 'bold',
-        color: backgroundColor,
+        color: Theme['light'].colors.primary,
     },
     ratingView: {
         flexDirection: 'row',
@@ -36,7 +37,7 @@ export const styles = StyleSheet.create({
     ratingText: {
         fontSize: 22,
         fontWeight: 'bold',
-        color: backgroundColor
+        color: Theme['light'].colors.primary
     },
     ratingStarContainer: {
         alignSelf: 'center',

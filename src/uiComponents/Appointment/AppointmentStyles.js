@@ -4,7 +4,7 @@ import Theme from '../../utils/theme';
 
 export default  StyleSheet.create({
     heading: { 
-        color: themeColor, 
+        color: Theme['light'].colors.background , 
         textAlign: 'center', 
         marginTop: 15, 
         marginBottom: 15, 
@@ -28,29 +28,29 @@ export default  StyleSheet.create({
         // borderBottomWidth: 0.5
     },
     listViewText: {
-        color: themeColor,
+        color: Theme['light'].colors.background ,
         textAlign: 'center',
         width: '100%',
         // fontWeight: 'bold',
         fontSize: 18
     },
     footer: {
-        backgroundColor: themeColor
+        backgroundColor: Theme['light'].colors.background 
     },
     footerButton: {
-        backgroundColor: themeColor,
+        backgroundColor: Theme['light'].colors.background ,
         width: '100%',
         height: '100%',
         justifyContent: 'center'
     },
     footerButtonText: {
-        color: backgroundColor,
+        color: Theme['light'].colors.background ,
         fontWeight: 'bold'
     },
     appointmentListView: {
         flexDirection: 'column',
         elevation: 5,
-        backgroundColor: backgroundColor,
+        backgroundColor: Theme['light'].colors.background ,
         paddingVertical: 10,
         paddingHorizontal: 15,
         borderRadius: 10,
@@ -64,12 +64,12 @@ export default  StyleSheet.create({
         fontSize: 12,
         marginBottom: 5,
         fontWeight: 'bold',
-        color: lightTextColor,
+        color: Theme['light'].colors.background ,
         flex: 1,
         marginRight: 10
     },
     listItemText: {
         fontSize: 14,
-        color: textColor
+        color: Theme['light'].colors.background 
     },
 })

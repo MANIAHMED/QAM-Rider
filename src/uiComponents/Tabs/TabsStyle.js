@@ -1,6 +1,5 @@
 import { StyleSheet } from "react-native";
 import Theme from "../../utils/theme";
-// import { themeColor, lightTextColor, backgroundColor } from "../../constants";
 
 export const styles = StyleSheet.create({
     tabs: {
@@ -26,7 +25,7 @@ export const styles = StyleSheet.create({
     },
     noBookingText: {
         textAlign: 'center',
-        color: themeColor,
+        color: Theme['light'].colors.background ,
         fontWeight: 'bold'
     }
 });

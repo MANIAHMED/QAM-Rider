@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native'
-import { backgroundColor } from '../../constants'
+import Theme from '../../utils/theme'
+// import { backgroundColor } from '../../constants'
 
 export const styles = StyleSheet.create({
     buttonContainer: { 
@@ -18,6 +19,6 @@ export const styles = StyleSheet.create({
         marginLeft: -2.5
     },
     buttonText: {
-        color: backgroundColor
+        color: Theme['light'].colors.primary
     }
 })

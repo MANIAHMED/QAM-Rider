@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View, Spinner } from 'native-base'
-import { styles } from './Loader.style'
+import { styles } from './LoaderStyle'
 import Theme from '../../utils/theme'
 
 const Loader = ({ loading = false }) => {

@@ -4,7 +4,7 @@ import { styles } from './HeaderStyle'
 import { StyleSheet, StatusBar } from 'react-native'
 import Ionicons from 'react-native-vector-icons/dist/Ionicons'
 import MaterialCommunityIcons from 'react-native-vector-icons/dist/MaterialCommunityIcons'
-import { iconPlatorm, backgroundColor, themeColor } from '../../utils/constant'
+// import { iconPlatorm, backgroundColor, themeColor } from '../../utils/constant'
 import { Actions } from 'react-native-router-flux'
 import numeral from 'numeral';
 
@@ -33,13 +33,13 @@ function Header({leftButtonType, showWallet, lng='en', wallet, backRoute, title,
         if (leftButtonType == 'back') {
             return (
                 <Button transparent style={localStyle.headerButton} onPress={handleBack} >
-                    <Ionicons name={iconPlatorm + '-arrow-back'} size={30} color={backgroundColor} />
+                    <Ionicons name={iconPlatorm + '-arrow-back'} size={30} color={Theme['light'].colors.background } />
                 </Button>
             )
         } else if (leftButtonType == 'menu') {
             return (
                 <Button transparent style={localStyle.headerButton} onPress={openControlPanel} >
-                    <Ionicons name={iconPlatorm + '-menu'} size={30} color={backgroundColor} />
+                    <Ionicons name={iconPlatorm + '-menu'} size={30} color={Theme['light'].colors.background } />
                 </Button>
             )
         } else {
@@ -57,7 +57,7 @@ function Header({leftButtonType, showWallet, lng='en', wallet, backRoute, title,
 
    const statusBarElem = () => {
         return (
-            <StatusBar backgroundColor={themeColor} barStyle="light-content" />
+            <StatusBar backgroundColor={Theme['light'].colors.background } barStyle="light-content" />
         )
     }
 

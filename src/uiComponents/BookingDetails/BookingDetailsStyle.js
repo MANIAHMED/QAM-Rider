@@ -46,7 +46,7 @@ export default  StyleSheet.create({
         fontSize: 12,
         marginBottom: 5,
         fontWeight: 'bold',
-        color: themeColor
+        color: Theme['light'].colors.background 
     },
     listItemText: {
         fontSize: 14,

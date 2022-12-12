@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
-import { lightTextColor, themeColor, backgroundColor, SH, textColor, } from '../../constants';
+import Theme from '../../utils/theme';
+// import { lightTextColor, themeColor, backgroundColor, SH, textColor, } from '../../constants';
 
 export const styles = StyleSheet.create({
     remarksModalContainer: {
@@ -10,7 +11,7 @@ export const styles = StyleSheet.create({
     remarksModalContent: {
         width: '90%',
         alignSelf: 'center',
-        backgroundColor: backgroundColor,
+        backgroundColor: Theme['light'].colors.primary,
         borderRadius: 10
     },
     remarksModalHeading: {
@@ -41,22 +42,22 @@ export const styles = StyleSheet.create({
     },
     remarksModalSubmitButtonText: {
         fontWeight: 'bold',
-        color: themeColor
+        color: Theme['light'].colors.primary
     },
     rateYourRiderContainer: {
-        backgroundColor: themeColor + '8a',
+        backgroundColor: Theme['light'].colors.primary + '8a',
         justifyContent: 'space-evenly',
         width: '100%',
         height: '100%',
     },
     bookingNumberText: {
-        color: backgroundColor,
+        color: Theme['light'].colors.primary,
         fontWeight: 'bold',
         fontSize: 32,
         textAlign: 'center',
     },
     viewContainer: {
-        backgroundColor: backgroundColor,
+        backgroundColor: Theme['light'].colors.primary,
         width: '90%',
         height: 550,
         alignSelf: 'center',
@@ -67,14 +68,14 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         fontWeight: 'bold',
         fontSize: 26,
-        color: lightTextColor,
+        color: Theme['light'].colors.primary,
     },
     amountText: {
         fontSize: 52,
-        color: themeColor,
+        color: Theme['light'].colors.primary,
     },
     button: {
-        backgroundColor: themeColor,
+        backgroundColor: Theme['light'].colors.primary,
         width: '90%',
         height: 60,
         justifyContent: 'center',
@@ -84,7 +85,7 @@ export const styles = StyleSheet.create({
         // bottom: 20
     },
     buttonText: {
-        color: backgroundColor,
+        color: Theme['light'].colors.primary,
         fontWeight: 'bold',
         fontSize: 22
     }

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Text, Modal, View, SafeAreaView, TouchableOpacity, Picker, Image, ScrollView } from 'react-native';
-import { styles } from './GetInfo.style';
+import { styles } from './GetInfoStyle';
 import { Button, Input, Item } from 'native-base';
 // import { dangerColor, lightTextColor } from '../../constants';
 import ImagePicker from 'react-native-image-picker';
-import MaterialCommunityIcons from 'react-native-vector-icons/dist/MaterialCommunityIcons';
+// import MaterialCommunityIcons from 'react-native-vector-icons/dist/MaterialCommunityIcons';
 import Loader from '../Loader/Loader'
-function GetInfo({handleInfoModal, handleInfoSubmit,_id,visible, labs, error, loading}) {
+function GetInfo({handleInfoModal,_id,visible, labs, error, loading}) {
 
     const [vtmNo, setVtmNo] = useState('');
     const [labId, setLabId] = useState('');

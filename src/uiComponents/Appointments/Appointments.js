@@ -6,7 +6,7 @@ import { Button, Container, Content, Footer } from 'native-base';
 import Styles from './AppointmentsStyle';
 import Loader from '../Loader/Loader';
 import CustomToast from '../Toast/Toast';
-import socket from 'socket.io-client/lib/socket';
+// import socket from 'socket.io-client/lib/socket';
 import Appointment from '../Appointment/Appointment';
 import BottomSheet from '../BottomSheet/BottomSheet';
 import GetInfo from './../GetInfo/GetInfo';

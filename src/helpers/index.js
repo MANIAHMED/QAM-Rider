@@ -1,5 +1,5 @@
 import axios from 'axios'
-import AsyncStorage from '@react-native-community/async-storage'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import store from './../store'
 import { fetchUsersData } from '../store/middlewares/user.middleware';
 import { Actions } from 'react-native-router-flux'

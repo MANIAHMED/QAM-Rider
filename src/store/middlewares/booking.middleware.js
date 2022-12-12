@@ -13,7 +13,7 @@ import {
 } from "../../helpers/apis";
 
 import { fetchCompletedBookingData } from "./completed_bookings.middleware";
-import BackgroundGeolocation from '@darron1217/react-native-background-geolocation';
+// import BackgroundGeolocation from '@darron1217/react-native-background-geolocation';
 import { updateUserData } from "./user.middleware";
 import io from 'socket.io-client'
 import { baseUrl, getUniqueArray, sortByDate } from './../../helpers/index'

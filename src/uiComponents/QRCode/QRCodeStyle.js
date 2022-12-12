@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
     QRText: {
         fontSize: 22,
         fontWeight: 'bold',
-        color: themeColor,
+        color: Theme['light'].colors.background ,
         marginVertical: 15
     },
     footer: {

@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native'
-import { SH, themeColor, lightTextColor, backgroundColor } from '../../constants';
+import Theme from '../../utils/theme';
+// import { SH, themeColor, lightTextColor, backgroundColor } from '../../constants';
 
 export const styles = StyleSheet.create({
     container: {
@@ -13,7 +14,7 @@ export const styles = StyleSheet.create({
         flex: 1
     },
     currentLocationButton: {
-        backgroundColor: backgroundColor,
+        backgroundColor: Theme['light'].colors.background ,
         position: 'absolute',
         height: 40,
         width: 40,
@@ -24,7 +25,7 @@ export const styles = StyleSheet.create({
         top: 10
     },
     trafficButton: {
-        backgroundColor: backgroundColor,
+        backgroundColor: Theme['light'].colors.background ,
         position: 'absolute',
         height: 40,
         width: 40,
@@ -35,20 +36,20 @@ export const styles = StyleSheet.create({
         top: 60
     },
     navigateButton: {
-        backgroundColor: themeColor,
+        backgroundColor: Theme['light'].colors.background ,
         position: 'absolute',
         bottom: 10,
         right: 10
     },
     navigateButtonText: {
-        color: backgroundColor,
+        color: Theme['light'].colors.primary ,
         fontWeight: 'bold'
     },
     merchantNameHeading: {
         textAlign: 'center',
         fontWeight: 'bold',
         fontSize: 16,
-        color: themeColor,
+        color: Theme['light'].colors.background ,
         marginTop: 10
     },
     logo: {

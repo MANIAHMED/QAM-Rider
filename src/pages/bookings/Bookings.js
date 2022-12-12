@@ -5,7 +5,7 @@ import { STATUS } from '../../utils/constant'
 import { Container, Content, Text } from 'native-base'
 import i18n from './../../i18n'
 import {  useDispatch, useSelector } from 'react-redux'
-import Header from './../../components/Header/Header'
+import Header from './../../uiComponents/Header/Header'
 import { ScrollView } from 'react-native-gesture-handler'
 import { numberFix } from '../../helpers'
 import CustomToast from '../../uiComponents/Toast/Toast'
@@ -23,8 +23,8 @@ import ShowAmount from '../../uiComponents/ShowAmount/ShowAmount'
 import Theme from '../../utils/theme'
 
 function Bookings({
-    user,
-    updateExtra,
+    // user,
+    // updateExtra,
     cancelAppointment,
     updateBookings,
     updateAppointmentTest,
@@ -34,13 +34,13 @@ function Bookings({
     updateVTMAndLab,
     lng,
     openControlPanel,
-    bookings = [],
-    completedBookings = [],
-    error,
-    loading,
-    labs,
-    services,
-    user
+    // bookings = [],
+    // completedBookings = [],
+    // error,
+    // loading,
+    // labs,
+    // services,
+    // user
 }) {
 
     const dispatch = useDispatch()
@@ -441,12 +441,12 @@ function Bookings({
 const Tab = ({ label, value, handleTabChange, currentTab }) => {
     return (
         <TouchableOpacity
-            style={[styles.tabView, { backgroundColor: currentTab == value ? backgroundColor : Theme['light'].colors.background }]}
+            style={[styles.tabView, { backgroundColor: currentTab == value ? Theme['light'].colors.background  : Theme['light'].colors.background }]}
             onPress={() => handleTabChange(value)}
         >
             <View>
                 <Text
-                    style={[styles.tabText, { color: currentTab == value ? themeColor : Theme['light'].colors.background }]}
+                    style={[styles.tabText, { color: currentTab == value ? Theme['light'].colors.background  : Theme['light'].colors.background }]}
                 >
                     {label}
                 </Text>

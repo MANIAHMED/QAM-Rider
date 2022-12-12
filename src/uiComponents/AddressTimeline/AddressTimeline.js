@@ -1,5 +1,4 @@
 import React from 'react'
-import React from 'react'
 import { Text, View } from 'react-native';
 import Styles from './AddressTimelineStyle';
 import Theme from '../../utils/theme';
