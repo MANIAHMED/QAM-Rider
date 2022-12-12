@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
-import { Text, Modal, View, SafeAreaView, TouchableOpacity, Picker, Image, ScrollView } from 'react-native';
+import React from 'react';
+import { Text, Modal, View, Picker, } from 'react-native';
 import { styles } from './GetPaymentType.style';
-import { Body, Button, Card, CardItem, Container, Content, Footer, Input, Item } from 'native-base';
-import { dangerColor, lightTextColor, PAYMENT_TYPE } from '../../utils/constant';
-import ImagePicker from 'react-native-image-picker';
-import MaterialCommunityIcons from 'react-native-vector-icons/dist/MaterialCommunityIcons';
+import { Body, Button, Card, CardItem, Container, Content, Footer, Item } from 'native-base';
+import { PAYMENT_TYPE } from '../../utils/constant';
 import Loader from '../Loader/Loader';
-// import CustomToast from '../Toast/Toast';
+import CustomToast from '../Toast/Toast';
+
 function GetPaymentType ({  visible = false,
     error,
     loading,
@@ -16,10 +15,6 @@ function GetPaymentType ({  visible = false,
     appointments,
     handleToastClose,
     vendorName}) {
-  
-  
-
-
         return (
             <Modal
                 animationType="slide"
@@ -28,10 +23,10 @@ function GetPaymentType ({  visible = false,
                 onRequestClose={() => handleGetPaymentTypeModal(false)}>
                 <Container>
                     <Loader loading={loading} />
-                    {/* {
+                    {
                         error !== '' &&
                         <CustomToast text={error} duration={3000} onClose={handleToastClose} />
-                    } */}
+                    }
                     <Content>
                         <Text style={styles.heading}>Enter Payment Types For Paid Users</Text>
                         <View style={styles.inputsView}>

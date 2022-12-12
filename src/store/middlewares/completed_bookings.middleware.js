@@ -1,6 +1,6 @@
 import { completedBookings as completedBookingsAction } from "../actions";
 import { GetBookings, SendToLab } from "../../helpers/apis";
-import { STATUS } from "../../constants";
+import { STATUS } from "../../utils/constant";
 import { getUniqueArray, sortByDate } from "../../helpers";
 import { updateExtra } from './extra.middleware'
 

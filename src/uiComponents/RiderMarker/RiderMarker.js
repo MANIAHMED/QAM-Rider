@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-// import { themeColor, backgroundColor } from '../../constants'
 import { styles } from './RiderMarkerStyle';
 import { SvgXml } from 'react-native-svg';
+import Theme from '../../utils/theme';
 
-const RiderMarker = ({ width = 80, height = 52, style = {}, color = themeColor, background = backgroundColor }) => {
+const RiderMarker = ({ width = 80, height = 52, style = {}, color = Theme['light'].colors.primary, background = Theme['light'].colors.background }) => {
     // const marker = `
     //     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 55.4 69.7">
     //         <path stroke="${color}" stroke-width="1" fill="${color}" id="XMLID_22_" class="st0" d="M49.6,10.8c-4.5-5.9-11-9.6-18.4-10.6c-7.3-0.9-14.6,1-20.5,5.5c-5.9,4.5-9.6,11-10.6,18.4

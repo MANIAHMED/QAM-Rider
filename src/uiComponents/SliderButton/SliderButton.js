@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Text, View } from 'react-native'
 import RNSwipeVerify from 'react-native-swipe-verify'
-import { SW, themeColor, backgroundColor } from '../../constants'
+import { SW } from '../../utils/constant'
 import LottieView from 'lottie-react-native';
 import { styles } from './SliderButtonStyle';
+import Theme from '../../utils/theme';
 
 const SliderButton = ({ handleSliderCompleted, buttonText }) => {
     var swipeVerify2 = null
-
     return (
         <View style={styles.buttonContainer}>
             <RNSwipeVerify
@@ -16,7 +16,7 @@ const SliderButton = ({ handleSliderCompleted, buttonText }) => {
                 height={50}
                 buttonSize={50}
                 buttonColor={'transparent'}
-                backgroundColor={themeColor}
+                backgroundColor={Theme['light'].colors.background}
                 borderRadius={0}
                 okButton={{ visible: true, duration: 400 }}
                 onVerified={() => {
@@ -26,7 +26,7 @@ const SliderButton = ({ handleSliderCompleted, buttonText }) => {
                 icon={
                     <View style={styles.animationIconContainer}>
                         <LottieView
-                            // source={require('./../../assets/arrow-right.json')}
+                            source={require('./../../assets/images/arrow-right.json')}
                             autoPlay
                             speed={1.5}
                             style={styles.animationIcon}
@@ -35,16 +35,14 @@ const SliderButton = ({ handleSliderCompleted, buttonText }) => {
                             colorFilters={[
                                 {
                                     keypath: "scroll_up",
-                                    color: backgroundColor
+                                    color: Theme['light'].colors.primary
                                 }
                             ]}
                         />
                     </View>
                 }
             >
-
                 <Text style={styles.buttonText} >{buttonText}</Text>
-
             </RNSwipeVerify>
         </View>
     )

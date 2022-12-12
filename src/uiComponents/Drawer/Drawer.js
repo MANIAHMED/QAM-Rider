@@ -27,12 +27,9 @@ function Drawer({ closeControlPanel, openControlPanel, }) {
     });
 
     const { administration_number, user } = reduxState;
-
-
     const [starCount, setStarCount] = useState(3)
 
     const onStarRatingPress = (rating) => {
-
         setStarCount(rating)
     }
 
@@ -45,7 +42,7 @@ function Drawer({ closeControlPanel, openControlPanel, }) {
 
 
 
-    handleLogout = async () => {
+  const  handleLogout = async () => {
         try {
             closeControlPanel()
             dispatch (changeUserAvailablity(async () => {
@@ -55,7 +52,7 @@ function Drawer({ closeControlPanel, openControlPanel, }) {
                 let notification_token = await AsyncStorage.getItem('NOTIFICATION_TOKEN')
                 socket.disconnect()
                 BackgroundGeolocation.stop() //working
-                this.handleTouch('Login')
+                handleTouch('Login')
             }))
         } catch (error) {
             console.log(error)

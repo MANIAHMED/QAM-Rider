@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import { styles } from './ToastStyle'
+import React  from 'react'
 import { Toast } from 'native-base'
 
 const CustomToast = ({ duration = 3000, text = '', onClose = () => { } }) => {

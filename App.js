@@ -1,23 +1,24 @@
 
-import React, { Fragment, useEffect, useState } from "react";
-import { Provider, useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { Provider, useDispatch } from "react-redux";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Root from "native-base";
 import { Provider } from 'react-native-paper'
 import { onesignalAppId } from "./src/utils/constant";
+import i18n from './src/i18n';
 
 const App = () => {
 
   const dispatch = useDispatch();
-
   const [lng, setLng] = useState(null);
-
 
   const onIds = async (device) => {
     if (device.userId) {
       await AsyncStorage.setItem('NOTIFICATION_TOKEN', device.userId)
     }
   }
+
+
 
   useEffect(() => {
     OneSignal.init(onesignalAppId);
@@ -26,8 +27,6 @@ const App = () => {
   }, [])
 
   useEffect(() => {
-
-
     let lng = AsyncStorage.getItem('@lng');
     if (lng) {
       setLng(lng)
@@ -36,8 +35,6 @@ const App = () => {
       setLng('en')
     }
   }, [])
-
-
 
   const handleLanguageChange = async (lng) => {
     await AsyncStorage.setItem('@lng', lng)
@@ -51,7 +48,6 @@ const App = () => {
           lng &&
           <Routes
             lng={lng}
-            // lng={'en'}
             handleLanguageChange={handleLanguageChange}
           />
         }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, Spinner } from 'native-base'
-// import { themeColor } from '../../constants'
 import { styles } from './Loader.style'
+import Theme from '../../utils/theme'
 
 const Loader = ({ loading = false }) => {
     if (!loading) {
@@ -9,7 +9,7 @@ const Loader = ({ loading = false }) => {
     }
     return (
         <View style={styles.loaderView}>
-            <Spinner color={themeColor} />
+            <Spinner color={Theme['light'].colors.primary} />
         </View>
     )
 }

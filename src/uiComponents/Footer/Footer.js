@@ -14,8 +14,6 @@ function Footer({ handleCollapsibleView, lng, expanded, bookings = [], isAvailab
 
     const dispatch = useDispatch()
 
-
-
    const reduxState = useSelector((states) => {
         return {
             bookings: states.bookings,

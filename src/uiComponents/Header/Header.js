@@ -1,14 +1,14 @@
-import React, { Component, useState } from 'react'
+import React, { useState } from 'react'
 import { Header as NBHeader, Left, Body, Right, Title, Button, Text, View } from 'native-base'
 import { styles } from './HeaderStyle'
 import { StyleSheet, StatusBar } from 'react-native'
 import Ionicons from 'react-native-vector-icons/dist/Ionicons'
 import MaterialCommunityIcons from 'react-native-vector-icons/dist/MaterialCommunityIcons'
-import { iconPlatorm, backgroundColor,textColor, themeColor } from '../../utils/constant'
+import { iconPlatorm, backgroundColor, themeColor } from '../../utils/constant'
 import { Actions } from 'react-native-router-flux'
 import numeral from 'numeral';
 
-function Header({leftButtonType, showWallet, lng='en', wallet, backRoute, title }) {
+function Header({leftButtonType, showWallet, lng='en', wallet, backRoute, title, openControlPanel }) {
 
 
     const reduxState = useSelector(({  user={} }) => {
@@ -32,13 +32,13 @@ function Header({leftButtonType, showWallet, lng='en', wallet, backRoute, title 
   const   backAndMenuBtn = () => {
         if (leftButtonType == 'back') {
             return (
-                <Button transparent style={localStyle.headerButton} onPress={this.handleBack} >
+                <Button transparent style={localStyle.headerButton} onPress={handleBack} >
                     <Ionicons name={iconPlatorm + '-arrow-back'} size={30} color={backgroundColor} />
                 </Button>
             )
         } else if (leftButtonType == 'menu') {
             return (
-                <Button transparent style={localStyle.headerButton} onPress={this.props.openControlPanel} >
+                <Button transparent style={localStyle.headerButton} onPress={openControlPanel} >
                     <Ionicons name={iconPlatorm + '-menu'} size={30} color={backgroundColor} />
                 </Button>
             )
@@ -47,7 +47,7 @@ function Header({leftButtonType, showWallet, lng='en', wallet, backRoute, title 
         }
     }
 
- const   handleBack = () => {
+ const handleBack = () => {
         if (backRoute) {
             Actions[backRoute]()
         } else {
@@ -55,13 +55,13 @@ function Header({leftButtonType, showWallet, lng='en', wallet, backRoute, title 
         }
     }
 
-   const  statusBarElem = () => {
+   const statusBarElem = () => {
         return (
             <StatusBar backgroundColor={themeColor} barStyle="light-content" />
         )
     }
 
-  const   headerRight = () => {
+  const headerRight = () => {
         return (
             <Right style={[styles.right, { justifyContent: lng == 'en' ? 'flex-end' : 'flex-start' }]}>
                 {

@@ -1,20 +1,19 @@
-import React, { Component, Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useRef } from 'react';
 import Styles from './BottomSheetStyle'
-import { View, Text, StyleSheet, ScrollView, Alert } from 'react-native';
+import { View, Text, ScrollView, Alert } from 'react-native';
 import RBSheet from "react-native-raw-bottom-sheet";
 import _ from 'lodash';
 import moment from 'moment';
-import Entypo from 'react-native-vector-icons/dist/Entypo'
-import { Menu } from 'react-native-paper';
 import { Button } from 'native-base';
-import { backgroundColor, themeColor } from '../../constants';
-import { STATUS } from './../../constants'
+import { STATUS } from './../../utils/constant'
 
 
 function BottomSheet({ handleInfoModal, appointment: { status, sendToLab, user }, handleCancelAppointment, handleTestModal, handleSendToLab, testChangable, handleClose }) {
 
+
+    const refRBSheet = useRef(null);
+
     const [visible, setVisible] = useState(false)
-    const [RBSheet, setRBSheet] = useState(null);
 
 
     const _openMenu = () => setVisible(true);
@@ -24,7 +23,6 @@ function BottomSheet({ handleInfoModal, appointment: { status, sendToLab, user }
 
     useEffect(() => {
         RBSheet.open()
-
     }, [])
 
     const handleVTM = () => {
@@ -112,9 +110,8 @@ function BottomSheet({ handleInfoModal, appointment: { status, sendToLab, user }
     }
     return (
         <RBSheet
-            ref={ref => {
-                this.RBSheet = ref;
-            }}
+      
+            ref={refRBSheet}
             closeOnDragDown={true}
             dragFromTopOnly={true}
             height={500}

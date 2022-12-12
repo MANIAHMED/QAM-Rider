@@ -7,9 +7,6 @@ import { consentUrl } from '../../helpers';
 
 function QRCode({visible = false, handleQRModal  })  {
   
-
-
-
         return (
             <Modal
                 animationType="slide"

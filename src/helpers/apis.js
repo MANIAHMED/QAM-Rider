@@ -1,7 +1,6 @@
 import axios from 'axios'
-import AsyncStorage from '@react-native-community/async-storage'
-import { googleApiKey } from '../constants'
-// import { baseUrl } from '.'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import { googleApiKey } from '../utils/constant'
 
 export const GetAdminitrationNumber = async () => {
     try {

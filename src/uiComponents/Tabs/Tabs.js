@@ -1,7 +1,6 @@
-import React, { Component, useEffect } from 'react'
+import React, {  useEffect } from 'react'
 import { Text, View, ScrollView, TouchableOpacity } from 'react-native'
 import { styles } from './TabsStyle'
-// import { themeColor } from '../../constants'
 import { connect } from 'react-redux'
 import store from '../../store';
 
@@ -41,8 +40,6 @@ function Tabs({ handleBookingChange, bookings }) {
     const handleBookingsSelect = (booking) => {
         let { bookings } = store.getState()
         handleBookingChange(bookings[bookings.findIndex(a => a._id == booking._id)])
-
-
         setSelectedId(booking ? booking._id : '')
     }
 

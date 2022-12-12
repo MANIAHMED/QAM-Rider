@@ -9,17 +9,11 @@ import Loader from '../Loader/Loader'
 function GetInfo({handleInfoModal, handleInfoSubmit,_id,visible, labs, error, loading}) {
 
     const [vtmNo, setVtmNo] = useState('');
-    const [labId, setVtmId] = useState('');
+    const [labId, setLabId] = useState('');
     const [labName, setLabName] = useState('');
     const [images, setImages] = useState('');
 
-
-
-    const handleInputs = (name, value) => {
-        this.setState({
-            [name]: value
-        })
-    }
+ 
 
     const handleImage = async () => {
         const options = {
@@ -32,18 +26,14 @@ function GetInfo({handleInfoModal, handleInfoSubmit,_id,visible, labs, error, lo
 
         ImagePicker.showImagePicker(options, (response) => {
             if (!response.didCancel && !response.error) {
-
                 images.push(response)
-
                 setImages(images)
             }
         })
     }
 
     const handleDeleteImage = (ind) => {
-
         images.splice(ind, 1)
-
         setImages(images)
     }
 
@@ -52,9 +42,7 @@ function GetInfo({handleInfoModal, handleInfoSubmit,_id,visible, labs, error, lo
             handleInfoModal(false)
         })
     }
-
-  
-
+    
     return (
         <Modal
             animationType="slide"
@@ -74,7 +62,8 @@ function GetInfo({handleInfoModal, handleInfoSubmit,_id,visible, labs, error, lo
                             placeholderTextColor={lightTextColor}
                             style={styles.input}
                             value={vtmNo}
-                            onChangeText={(text) => handleInputs('vtmNo', text)}
+                            onChangeText={(text) => setVtmNo(text)}
+
                         />
                     </Item>
                     <Item style={styles.inputItem}>
@@ -82,7 +71,9 @@ function GetInfo({handleInfoModal, handleInfoSubmit,_id,visible, labs, error, lo
                             mode="dropdown"
                             style={[styles.input, { width: '100%' }]}
                             selectedValue={labName}
-                            onValueChange={(text) => handleInputs('labName', text)}
+                            // onValueChange={(text) => handleInputs('labName', text)}
+                            onValueChange={(text) => setLabName(text)}
+
                         >
                             <Picker.Item label="Select Lab" value="" />
                             {
@@ -109,7 +100,7 @@ function GetInfo({handleInfoModal, handleInfoSubmit,_id,visible, labs, error, lo
                         </View>
                     </ScrollView>
 
-                    <Button style={styles.uploadButton} onPress={this.handleImage}>
+                    <Button style={styles.uploadButton} onPress={handleImage}>
                         <Text style={styles.uploadButtonText}>Upload Consent Form</Text>
                     </Button>
 

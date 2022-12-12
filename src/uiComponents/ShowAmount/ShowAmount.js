@@ -1,8 +1,8 @@
 import React, { Component, useState } from 'react';
 import { Text, Modal, View, SafeAreaView } from 'react-native';
-import { styles } from './/ShowAmountStyle';
+import { styles } from './ShowAmountStyle';
 import { Button } from 'native-base';
-import { STATUS, PAYMENT_TYPE, backgroundColor, themeColor } from './../../utils/constant'
+import { STATUS, PAYMENT_TYPE,  } from './../../utils/constant'
 import { TextInput } from 'react-native-paper';
 
 
@@ -12,27 +12,19 @@ function ShowAmount({ handleCollected, visible = false, handleAmountModal, appoi
     const [remarksVisible, setRemarksVisible] = useState(false)
     const [remarks, setRemarks] = useState('')
 
-
-
     const handleRemarksPrompt = () => {
         setRemarksVisible(true)
     }
 
     const handleRemarksClose = () => {
-
-
         setRemarksVisible(false)
         setRemarks('')
     }
 
     const handleRemarksSubmit = () => {
         handleCollected(remarks)
-
         handleRemarksClose()
-
     }
-
-   
 
         let allAppointments = appointments.filter(a => a.status != STATUS.CANCELLED)
 
@@ -84,7 +76,7 @@ function ShowAmount({ handleCollected, visible = false, handleAmountModal, appoi
                     animationType="slide"
                     transparent={true}
                     visible={remarksVisible}
-                    onRequestClose={this.handleRemarksClose}
+                    onRequestClose={handleRemarksClose}
                 >
                     <View style={styles.remarksModalContainer}>
                         <View style={styles.remarksModalContent} >
@@ -103,7 +95,7 @@ function ShowAmount({ handleCollected, visible = false, handleAmountModal, appoi
                                 <Button
                                     transparent
                                     style={styles.remarksModalCloseButton}
-                                    onPress={this.handleRemarksClose}
+                                    onPress={handleRemarksClose}
                                 >
                                     <Text style={styles.remarksModalCloseButtonText} >Cancel</Text>
                                 </Button>
@@ -111,7 +103,7 @@ function ShowAmount({ handleCollected, visible = false, handleAmountModal, appoi
                                 <Button
                                     transparent
                                     style={styles.remarksModalSubmitButton}
-                                    onPress={this.handleRemarksSubmit}
+                                    onPress={handleRemarksSubmit}
                                 >
                                     <Text style={styles.remarksModalSubmitButtonText}>Submit</Text>
                                 </Button>
@@ -141,7 +133,7 @@ function ShowAmount({ handleCollected, visible = false, handleAmountModal, appoi
                             </View>
                             {
                                 status === STATUS.SAMPLE_COLLECTED &&
-                                <Button style={styles.button} onPress={this.handleRemarksPrompt} >
+                                <Button style={styles.button} onPress={handleRemarksPrompt} >
                                     <Text style={styles.buttonText}>Collected</Text>
                                 </Button>
                             }

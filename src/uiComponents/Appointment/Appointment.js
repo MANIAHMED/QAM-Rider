@@ -1,5 +1,5 @@
 import React from 'react'
-import React, { Component } from 'react';
+import React from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 import Styles from './AppointmentStyles'
 import _ from 'lodash';

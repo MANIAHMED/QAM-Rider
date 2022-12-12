@@ -6,8 +6,8 @@ import { Actions } from 'react-native-router-flux'
 import { updateExtra } from '../store/middlewares/extra.middleware';
 import { Linking } from 'react-native';
 
-export const baseUrl = !__DEV__ ? 'https://admin.v2.qam.healthcare' : 'https://admin.v2.qam.healthcare' //http://10.40.5.108:8081
-export const consentUrl = !__DEV__ ? 'https://admin.v2.qam.healthcare/consentForm' : 'https://admin.v2.qam.healthcare/consentForm'
+export const baseUrl = !__DEV__ ? 'https://10.40.5.11:8082' : 'https://10.40.5.11:8082' //http://10.40.5.108:8081
+export const consentUrl = !__DEV__ ? 'https://10.40.5.11:8082/consentForm' : 'https://10.40.5.11:8082/consentForm'
 
 // Production
 export const onesignalAppId = '21713bac-c47b-4041-b530-0efbb8da658c'
@@ -15,7 +15,6 @@ export const onesignalAppId = '21713bac-c47b-4041-b530-0efbb8da658c'
 axios.defaults.baseURL = baseUrl + '/api';
 
 export const checkAuth = async () => {
-    // store.dispatch(updateExtra({ loading: true, error: '' }))
     return new Promise(async (resolve, reject) => {
         try {
             let snap = await AsyncStorage.getItem('ACCESS_TOKEN')

@@ -1,43 +1,43 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import { Text, Modal, View, ScrollView, TouchableOpacity, Share } from 'react-native';
 import styles from './BookingDetailsStyle';
 import { Button, Container, Content, Footer } from 'native-base';
-import MaterialCommunityIcons from 'react-native-vector-icons/dist/MaterialCommunityIcons'
-import { STATUS, textColor, themeColor } from '../../constants';
-import BottomSheet from '../BottomSheet/BottomSheet';
-import Appointment from '../Appointment/Appointment';
+import { STATUS } from '../../utils/constant';
 import Loader from '../../components/Loader/Loader';
-import GetInfo from '../GetInfo/GetInfo';
 import CustomToast from '../Toast/Toast';
-import TestList from '../TestList/TestList';
-import socket from 'socket.io-client/lib/socket';
 import { consentUrl, makeCall, numberFix } from '../../helpers';
 import { GetUserAddress } from '../../helpers/apis';
 
-function BookingDetails({ currentBooking, handleAppointmentModal, loading,
+
+function BookingDetails({ 
+    currentBooking,
+    handleAppointmentModal,
+    loading,
     error,
     handleToastClose,
     currentBooking,
     handleQRModal,
-    user, visible, handleBookingDetailsModal, handleAppointmentTestChange, handleTestModal, showButtons = true, handleAmountModal, testChangable = true }) {
+    user, 
+    visible,
+    handleBookingDetailsModal, 
+    handleAppointmentTestChange, 
+    handleTestModal, 
+    showButtons = true, 
+    handleAmountModal, 
+    testChangable = true
+ }) {
 
     const [selected, setSelected] = useState(null);
     const [showInfoModal, setShowInfoModal] = useState(null)
     const [showTestModal, setShowTestModal] = useState(null)
     const [id, setId] = useState('')
 
-
-
-
-
     const handleSelection = (appointment) => {
         setSelected(appointment)
-
     }
 
     const handleClose = () => {
         setSelected(null)
-
     }
 
     const handleInfoModal = (state, id = null) => {
@@ -48,7 +48,6 @@ function BookingDetails({ currentBooking, handleAppointmentModal, loading,
     const handleTestModal = (state, id = null) => {
         setShowTestModal(state)
         setId(id)
-
     }
 
     const shareLocation = async (currentBooking) => {
@@ -98,7 +97,7 @@ function BookingDetails({ currentBooking, handleAppointmentModal, loading,
                 <Button style={styles.headerButton} onPress={() => makeCall(currentBooking.phone)} >
                     <Text style={styles.headerButtonText} >Call Customer</Text>
                 </Button>
-                <Button style={styles.headerButton} onPress={() => this.shareLocation(currentBooking)} >
+                <Button style={styles.headerButton} onPress={() => shareLocation(currentBooking)} >
                     <Text style={styles.headerButtonText} >Share Location</Text>
                 </Button>
             </>
@@ -116,10 +115,10 @@ function BookingDetails({ currentBooking, handleAppointmentModal, loading,
                 visible={visible}
             >
                 <Container>
-                    {/* {
+                    {
                         error !== '' &&
                         <CustomToast text={error} duration={3000} onClose={handleToastClose} />
-                    } */}
+                    }
                     <Loader loading={loading} />
 
                     <Content scrollEnabled={true} showsVerticalScrollIndicator={false}>
@@ -154,12 +153,12 @@ function BookingDetails({ currentBooking, handleAppointmentModal, loading,
 
                                 {currentBooking?.time ? <View style={styles.listItem}>
                                     <Text style={styles.listItemTitle}>Date</Text>
-                                    <Text style={styles.listItemText}>{this.createDate(currentBooking.time)}</Text>
+                                    <Text style={styles.listItemText}>{createDate(currentBooking.time)}</Text>
                                 </View> : null}
 
                                 {currentBooking?.startTime ? <View style={styles.listItem}>
                                     <Text style={styles.listItemTitle}>Slot</Text>
-                                    <Text style={styles.listItemText}>{this.createSlot(currentBooking.startTime, currentBooking.endTime)}</Text>
+                                    <Text style={styles.listItemText}>{createSlot(currentBooking.startTime, currentBooking.endTime)}</Text>
                                 </View> : null}
 
                                 {currentBooking?.firstName ? <View style={styles.listItem}>

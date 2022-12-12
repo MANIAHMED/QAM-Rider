@@ -1,6 +1,6 @@
 import { labs as labsAction } from "../actions";
 import { GetLabs } from "../../helpers/apis";
-import { STATUS } from "../../constants";
+import { STATUS } from "../../utils/constant";
 
 export const fetchLabData = () => {
     return async (dispatch) => {

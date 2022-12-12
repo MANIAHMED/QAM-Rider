@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
-import { Text, StyleSheet, View } from 'react-native'
-import Drawer from 'react-native-drawer'
+import React from 'react'
+import Drawer from 'react-native-drawer';
 import DrawerView from './../uiComponents/Drawer/Drawer';
 
-function DrawerNavigation() {
+function DrawerNavigation () {
 
 
     const closeControlPanel = () => {
         this._drawer.close()
     };
+
     const openControlPanel = () => {
         this._drawer.open()
     };

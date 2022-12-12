@@ -11,12 +11,13 @@ import {
     GetSingleBooking,
     UpdatePaymentTypes
 } from "../../helpers/apis";
+
 import { fetchCompletedBookingData } from "./completed_bookings.middleware";
-import BackgroundGeolocation from '@mauron85/react-native-background-geolocation';
+// import BackgroundGeolocation from '@mauron85/react-native-background-geolocation';
 import { updateUserData } from "./user.middleware";
 import io from 'socket.io-client'
 import { baseUrl, getUniqueArray, sortByDate } from './../../helpers/index'
-import { PAYMENT_TYPE, STATUS } from "../../constants";
+import { PAYMENT_TYPE, STATUS } from "../../utils/constant";
 
 
 export const fetchBookingData = (initial, currentBooking = null, callback = () => { }) => {
@@ -130,9 +131,6 @@ export const UpdateBookingData = (booking, callback) => {
 export const UpdateBookingToCancel = (bookingId) => {
     return async (dispatch, getStates) => {
         let { bookings } = getStates()
-
-        // await CancelBooking({ _id: bookingId })
-
         let ind = bookings.findIndex(a => a._id == bookingId)
         if (ind == -1) {
             return
@@ -174,8 +172,6 @@ export const updateAppointmentTest = (appointmentId, testId, bookingId, price, c
                 let bookingInd = bookings.findIndex(a => a._id == bookingId)
                 bookings[bookingInd] = resp.data.data.data
             }
-
-
             callback({ data: resp.data.data.data, greater: resp.data.data.greater })
             dispatch(bookingsAction(sortByDate(getUniqueArray([...bookings], ['_id']))));
             dispatch(updateExtra({ loading: false, error: '' }))
@@ -231,9 +227,7 @@ export const updateVTMAndLab = ({ appointmentId, vtmNo, labId, labName, images =
         let { bookings } = getStates()
         try {
             dispatch(updateExtra({ loading: true, error: '' }))
-
             let body = new FormData()
-
             body.append('_id', appointmentId)
             body.append('vtmNumber', vtmNo)
             body.append('labId', labId)
@@ -248,7 +242,6 @@ export const updateVTMAndLab = ({ appointmentId, vtmNo, labId, labName, images =
             })
 
             await UpdateVTM(body)
-
             let bookingInd = bookings.findIndex(a => a._id == bookingId)
             let appointmentInd = bookings[bookingInd].appointments.findIndex(a => a._id == appointmentId)
             bookings[bookingInd].appointments[appointmentInd].status = STATUS.SAMPLE_COLLECTED

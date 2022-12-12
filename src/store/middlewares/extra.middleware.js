@@ -1,4 +1,4 @@
-import { extras as extrasAction } from './../actions/index'
+import { extras as extrasAction } from '../actions/index'
 import { GetAdminitrationNumber } from '../../helpers/apis';
 
 export const updateExtra = (extra) => {

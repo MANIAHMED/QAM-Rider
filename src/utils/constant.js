@@ -1,5 +1,8 @@
 export const googleApiKey = 'AIzaSyAsY3fBIQUyDkDeMj_U-gv5oKmFrSMN5gI';
-export const onesignalAppId = '21713bac-c47b-4041-b530-0efbb8da658c'
+export const onesignalAppId = '21713bac-c47b-4041-b530-0efbb8da658c';
+export const SW = Dimensions.get('window').width;
+export const SH = Dimensions.get('window').height;
+
 
 export const RECORD_TYPE = {
     BOOKING: 'BOOKING',

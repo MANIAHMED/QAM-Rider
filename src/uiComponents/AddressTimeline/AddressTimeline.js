@@ -1,13 +1,9 @@
 import React from 'react'
 import React from 'react'
-import { Text, View, Button,  } from 'react-native';
+import { Text, View } from 'react-native';
 import Styles from './AddressTimelineStyle';
-
 import Theme from '../../utils/theme';
 import Entypo from 'react-native-vector-icons/Entypo';
-
-
-
 
 function AddressTimeline({ from, to, isMenuBtn, customerNumber = '' }) {
 

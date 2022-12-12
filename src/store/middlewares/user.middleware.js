@@ -1,13 +1,12 @@
-import AsyncStorage from "@react-native-community/async-storage";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { users } from "../actions";
 import { updateExtra } from './extra.middleware'
 import { LoginUser, CheckAuth, SetUnavailable, SetAvailable, GetUserAddress } from "../../helpers/apis";
 import { Actions } from "react-native-router-flux";
-import BackgroundGeolocation from '@mauron85/react-native-background-geolocation';
+// import BackgroundGeolocation from '@mauron85/react-native-background-geolocation';
 import io from 'socket.io-client'
 import { baseUrl } from '../../helpers/index'
 import axios from "axios";
-import { fetchBookingData } from "./booking.middleware";
 
 export const loginUser = (phone, password, notificationToken) => {
     return async (dispatch, getState) => {

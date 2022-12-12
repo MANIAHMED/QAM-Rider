@@ -14,5 +14,4 @@ const Root = () => {
     )
 }
 
-
 AppRegistry.registerComponent(appName, () => Root);

@@ -1,8 +1,11 @@
 
 
 import React from 'react';
-import { Text, Modal, View, ScrollView, TouchableOpacity, Button } from 'react-native';
+import { Text, Modal, View, ScrollView, TouchableOpacity } from 'react-native';
+import { Button, Container, Content, Footer } from 'native-base';
 import Styles from './AppointmentsStyle';
+import Loader from '../Loader/Loader';
+import CustomToast from '../Toast/Toast';
 import socket from 'socket.io-client/lib/socket';
 import Appointment from '../Appointment/Appointment';
 import BottomSheet from '../BottomSheet/BottomSheet';
@@ -14,8 +17,8 @@ import TestList from './../TestList/TestList'
 
 
 function Appointments({
-    handleAppointmentTestChange,    
-     visible = false,
+    handleAppointmentTestChange,
+    visible = false,
     handleAppointmentModal,
     appointments,
     handleCancelAppointment,
@@ -51,8 +54,7 @@ function Appointments({
         setId(id)
     }
 
-
- const handleTestChange = (testId, price) => {
+    const handleTestChange = (testId, price) => {
         handleAppointmentTestChange(testId, id, price)
         handleTestModal(false)
     }
@@ -60,68 +62,68 @@ function Appointments({
 
     return (
         <Modal
-                    transparent={false}
-                    animationType="slide"
-                    onRequestClose={() => handleAppointmentModal(false)}
-                    visible={visible}
-                >
-                    {
-                        selected &&
-                        <BottomSheet
-                            handleCancelAppointment={handleCancelAppointment}
-                            handleInfoModal={handleInfoModal}
-                            appointment={selected}
-                            handleClose={handleClose}
-                            handleTestModal={handleTestModal}
-                            handleSendToLab={handleSendToLab}
-                            testChangable={testChangable}
-                        />
-                    }
-                    {
-                        id &&
-                        <>
-                            <GetInfo
-                                loading={loading}
-                                error={error}
-                                visible={showInfoModal}
-                                handleInfoModal={handleInfoModal}
-                                handleInfoSubmit={handleInfoSubmit}
-                                labs={labs}
-                                _id={id}
-                            />
+            transparent={false}
+            animationType="slide"
+            onRequestClose={() => handleAppointmentModal(false)}
+            visible={visible}
+        >
+            {
+                selected &&
+                <BottomSheet
+                    handleCancelAppointment={handleCancelAppointment}
+                    handleInfoModal={handleInfoModal}
+                    appointment={selected}
+                    handleClose={handleClose}
+                    handleTestModal={handleTestModal}
+                    handleSendToLab={handleSendToLab}
+                    testChangable={testChangable}
+                />
+            }
+            {
+                id &&
+                <>
+                    <GetInfo
+                        loading={loading}
+                        error={error}
+                        visible={showInfoModal}
+                        handleInfoModal={handleInfoModal}
+                        handleInfoSubmit={handleInfoSubmit}
+                        labs={labs}
+                        _id={id}
+                    />
 
-                            <TestList
-                                services={services}
-                                currentTest={appointments[appointments.findIndex(a => a._id == id)].subService._id}
-                                visible={showTestModal}
-                                handleTestModal={handleTestModal}
-                                handleTestChange={handleTestChange}
-                                initialSubServices={initialSubServices}
-                            />
-                        </>
-                    }
-                    <Container>
-                        {
-                            // error !== '' &&
-                            // <CustomToast text={error} duration={3000} onClose={handleToastClose} />
-                        }
-                        <Loader loading={loading} />
+                    <TestList
+                        services={services}
+                        currentTest={appointments[appointments.findIndex(a => a._id == id)].subService._id}
+                        visible={showTestModal}
+                        handleTestModal={handleTestModal}
+                        handleTestChange={handleTestChange}
+                        initialSubServices={initialSubServices}
+                    />
+                </>
+            }
+            <Container>
+                {
+                    error !== '' &&
+                    <CustomToast text={error} duration={3000} onClose={handleToastClose} />
+                }
+                <Loader loading={loading} />
 
-                        <Content scrollEnabled={true} showsVerticalScrollIndicator={false}>
-                            <Text style={Styles.heading}>Appointments</Text>
-                            {
-                                appointments.map((appointment, ind) => (
-                                    <Appointment appointment={appointment} key={ind} handleSelection={handleSelection} />
-                                ))
-                            }
-                        </Content>
-                        <Footer style={Styles.footer}>
-                            <Button style={Styles.footerButton} onPress={() => handleAppointmentModal(false)}>
-                                <Text style={Styles.footerButtonText}>Close</Text>
-                            </Button>
-                        </Footer>
-                    </Container>
-                </Modal>
+                <Content scrollEnabled={true} showsVerticalScrollIndicator={false}>
+                    <Text style={Styles.heading}>Appointments</Text>
+                    {
+                        appointments.map((appointment, ind) => (
+                            <Appointment appointment={appointment} key={ind} handleSelection={handleSelection} />
+                        ))
+                    }
+                </Content>
+                <Footer style={Styles.footer}>
+                    <Button style={Styles.footerButton} onPress={() => handleAppointmentModal(false)}>
+                        <Text style={Styles.footerButtonText}>Close</Text>
+                    </Button>
+                </Footer>
+            </Container>
+        </Modal>
     )
 }
 
